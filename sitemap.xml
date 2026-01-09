@@ -422,6 +422,44 @@
       
       <url>
         <loc>
+          https://ztools.site/dev-memes/
+        </loc>
+        <changefreq>
+          monthly
+        </changefreq>
+        <priority>
+          0.8
+        </priority>
+        
+          <xhtml:link rel="alternate" hreflang="vi" href="https://ztools.site/dev-memes/" />
+          
+          <xhtml:link rel="alternate" hreflang="en" href="https://ztools.site/dev-memes/?lang=en" />
+          
+          <xhtml:link rel="alternate" hreflang="x-default" href="https://ztools.site/dev-memes/?lang=en" />
+          
+      </url>
+      
+      <url>
+        <loc>
+          https://ztools.site/dev-memes/?lang=en
+        </loc>
+        <changefreq>
+          monthly
+        </changefreq>
+        <priority>
+          0.8
+        </priority>
+        
+          <xhtml:link rel="alternate" hreflang="vi" href="https://ztools.site/dev-memes/" />
+          
+          <xhtml:link rel="alternate" hreflang="en" href="https://ztools.site/dev-memes/?lang=en" />
+          
+          <xhtml:link rel="alternate" hreflang="x-default" href="https://ztools.site/dev-memes/?lang=en" />
+          
+      </url>
+      
+      <url>
+        <loc>
           https://ztools.site/dev-toolkit/
         </loc>
         <changefreq>
@@ -954,7 +992,7 @@
       
       <url>
         <loc>
-          https://ztools.site/word-counter/
+          https://ztools.site/word-counter/d
         </loc>
         <changefreq>
           monthly
@@ -963,17 +1001,17 @@
           0.8
         </priority>
         
-          <xhtml:link rel="alternate" hreflang="vi" href="https://ztools.site/word-counter/" />
+          <xhtml:link rel="alternate" hreflang="vi" href="https://ztools.site/word-counter/d" />
           
-          <xhtml:link rel="alternate" hreflang="en" href="https://ztools.site/word-counter/?lang=en" />
+          <xhtml:link rel="alternate" hreflang="en" href="https://ztools.site/word-counter/d?lang=en" />
           
-          <xhtml:link rel="alternate" hreflang="x-default" href="https://ztools.site/word-counter/?lang=en" />
+          <xhtml:link rel="alternate" hreflang="x-default" href="https://ztools.site/word-counter/d?lang=en" />
           
       </url>
       
       <url>
         <loc>
-          https://ztools.site/word-counter/?lang=en
+          https://ztools.site/word-counter/d?lang=en
         </loc>
         <changefreq>
           monthly
@@ -982,11 +1020,11 @@
           0.8
         </priority>
         
-          <xhtml:link rel="alternate" hreflang="vi" href="https://ztools.site/word-counter/" />
+          <xhtml:link rel="alternate" hreflang="vi" href="https://ztools.site/word-counter/d" />
           
-          <xhtml:link rel="alternate" hreflang="en" href="https://ztools.site/word-counter/?lang=en" />
+          <xhtml:link rel="alternate" hreflang="en" href="https://ztools.site/word-counter/d?lang=en" />
           
-          <xhtml:link rel="alternate" hreflang="x-default" href="https://ztools.site/word-counter/?lang=en" />
+          <xhtml:link rel="alternate" hreflang="x-default" href="https://ztools.site/word-counter/d?lang=en" />
           
       </url>
       
