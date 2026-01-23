@@ -3,7 +3,7 @@
   "short_name": "ZTools",
   "description": "Bộ công cụ tiện ích online miễn phí: Tính thuế TNCN, BMI, JSON Formatter và nhiều hơn nữa.",
   "id": "/?source=pwa",
-  "start_url": "/vi/?source=pwa",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0f172a",
@@ -43,7 +43,7 @@
       "name": "blog.title",
       "short_name": "blog.title",
       "description": "blog.desc",
-      "url": "/vi/blog/?source=pwa",
+      "url": "/blog/?source=pwa",
       "icons": [
         {
           "src": "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext\n  y='.9em' font-size='90'%3Epen-tool%3C/text%3E%3C/svg%3E",
@@ -56,7 +56,7 @@
       "name": "bmi.title",
       "short_name": "bmi.title",
       "description": "bmi.desc",
-      "url": "/vi/bmi/?source=pwa",
+      "url": "/bmi/?source=pwa",
       "icons": [
         {
           "src": "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext\n  y='.9em' font-size='90'%3Escale%3C/text%3E%3C/svg%3E",
@@ -69,7 +69,7 @@
       "name": "bookmarkCreator.title",
       "short_name": "bookmarkCreator.title",
       "description": "bookmarkCreator.desc",
-      "url": "/vi/bookmark-creator/?source=pwa",
+      "url": "/bookmark-creator/?source=pwa",
       "icons": [
         {
           "src": "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext\n  y='.9em' font-size='90'%3Ebookmark%3C/text%3E%3C/svg%3E",
@@ -82,7 +82,7 @@
       "name": "cronParser.title",
       "short_name": "cronParser.title",
       "description": "cronParser.desc",
-      "url": "/vi/cron-parser/?source=pwa",
+      "url": "/cron-parser/?source=pwa",
       "icons": [
         {
           "src": "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext\n  y='.9em' font-size='90'%3Eterminal%3C/text%3E%3C/svg%3E",
