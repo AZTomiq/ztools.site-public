@@ -12,10 +12,46 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-JQ06SN6YNW');
   </script>
   
+
+    <!-- Subdomain Routing (Shared-Code Strategy) -->
+    <script>
+      (function () {
+        const subdomains = ;
+        const host = window.location.hostname;
+        const path = window.location.pathname;
+        const mainDomain = "ztools.site";
+
+        // 0. Bypasses for development
+        if (host === 'localhost' || host === '127.0.0.1' || host.includes('.local')) return;
+
+        // 1. Redirection: Path -> Subdomain
+        const mappedSub = subdomains.find(s => path.startsWith(s.path));
+
+        // If on main domain but path has a dedicated subdomain -> Redirect
+        if (mappedSub && host === mainDomain) {
+          window.location.replace("https://" + mappedSub.domain + path.replace(mappedSub.path, '/'));
+          return;
+        }
+
+        // 2. Redirection: Wrong Subdomain -> Correct Subdomain (Cross-transition)
+        // If on a subdomain but path doesn't belong to it (or belongs to another)
+        const currentSub = subdomains.find(s => s.domain === host);
+        if (currentSub) {
+          // Not on the root path of this subdomain, and it's not the correct content path
+          // (This is rare but keeps the routing clean)
+          if (mappedSub && mappedSub.domain !== host) {
+            window.location.replace("https://" + mappedSub.domain + path.replace(mappedSub.path, '/'));
+          } else if (!path.startsWith('/') && !mappedSub) {
+            // Fallback to main domain if path unknown and not on main
+            // window.location.replace("https://" + mainDomain + path);
+          }
+        }
+      })();
+    </script>
+
     <title>
       ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí
     </title>
@@ -25,87 +61,88 @@
         <meta name="keywords" content="free tools, online utility, bộ công cụ online, tính thuế tncn, format json, aztomiq, tiện ích miễn phí">
         
 
-          <!-- Canonical URL (Clean root URLs for default locale) -->
+          <!-- Canonical URL (Dynamic Subdomain Support) -->
           
             <link rel="canonical" href="https://ztools.site/percentage-calculator/" />
 
-            <!-- Hreflang Tags for Multi-language -->
-            <link rel="alternate" hreflang="vi" href="https://ztools.site/percentage-calculator/" />
-            <link rel="alternate" hreflang="en" href="https://ztools.site/percentage-calculator/?lang=en" />
-            <link rel="alternate" hreflang="x-default" href="https://ztools.site/percentage-calculator/?lang=en" />
-
-            <!-- Open Graph / Facebook -->
-            <meta property="og:type" content="article" />
-            <meta property="og:url" content="https://ztools.site/percentage-calculator/" />
-            <meta property="og:title" content="ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí" />
-            <meta property="og:description" content="Công cụ tính phần trăm online tiện lợi. Tính % của số, tính giá trị sau khi tăng/giảm %, tính tỷ lệ % giữa 2 số." />
-            <meta property="og:image" content="https://ztools.site/assets/images/og-default.png" />
-            <meta property="og:site_name" content="ZTools" />
+            <!-- Hreflang Tags (Cross-Domain Support) -->
             
-              <meta property="og:locale" content="vi_VN" />
-              <meta property="og:locale:alternate" content="en_US" />
+              <link rel="alternate" hreflang="vi" href="https://ztools.site/percentage-calculator/" />
+              <link rel="alternate" hreflang="en" href="https://ztools.site/en/percentage-calculator/" />
+              <link rel="alternate" hreflang="x-default" href="https://ztools.site/en/percentage-calculator/" />
 
-              <!-- Twitter Card -->
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:url" content="https://ztools.site/percentage-calculator/" />
-              <meta name="twitter:title" content="ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí" />
-              <meta name="twitter:description" content="Công cụ tính phần trăm online tiện lợi. Tính % của số, tính giá trị sau khi tăng/giảm %, tính tỷ lệ % giữa 2 số." />
-              <meta name="twitter:image" content="https://ztools.site/assets/images/og-default.png" />
-
-              <!-- Author & Copyright -->
-              <meta name="author" content="Anph" />
-              <meta name="robots" content="index, follow" />
-
-              <!-- Fonts -->
-              <link rel="preconnect" href="https://fonts.googleapis.com">
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-              <link
-                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@400;500;600;700;800;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
-                rel="stylesheet">
-
-              <!-- Prism.js for Code Highlighting -->
-              <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
-                rel="stylesheet" />
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"
-                defer></script>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"
-                defer></script>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"
-                defer></script>
-
-              <!-- Stylesheets -->
-              <link rel="stylesheet" href="../assets/css/global.css?h=06bca81b&amp;v=1.5.2">
+              <!-- Open Graph / Facebook -->
+              <meta property="og:type" content="article" />
+              <meta property="og:url" content="https://ztools.site/percentage-calculator/" />
+              <meta property="og:title" content="ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí" />
+              <meta property="og:description" content="Công cụ tính phần trăm online tiện lợi. Tính % của số, tính giá trị sau khi tăng/giảm %, tính tỷ lệ % giữa 2 số." />
+              <meta property="og:image" content="https://ztools.site/assets/images/og-default.png" />
+              <meta property="og:site_name" content="ZTools" />
               
-                <link rel="stylesheet" href="../assets/features/percentage-calculator/style.css?h=f7fa4e3f&amp;v=1.5.2">
+                <meta property="og:locale" content="vi_VN" />
+                <meta property="og:locale:alternate" content="en_US" />
+
+                <!-- Twitter Card -->
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:url" content="https://ztools.site/percentage-calculator/" />
+                <meta name="twitter:title" content="ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí" />
+                <meta name="twitter:description" content="Công cụ tính phần trăm online tiện lợi. Tính % của số, tính giá trị sau khi tăng/giảm %, tính tỷ lệ % giữa 2 số." />
+                <meta name="twitter:image" content="https://ztools.site/assets/images/og-default.png" />
+
+                <!-- Author & Copyright -->
+                <meta name="author" content="Anph" />
+                <meta name="robots" content="index, follow" />
+
+                <!-- Fonts -->
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@400;500;600;700;800;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
+                  rel="stylesheet">
+
+                <!-- Prism.js for Code Highlighting -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+                  rel="stylesheet" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"
+                  defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"
+                  defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"
+                  defer></script>
+
+                <!-- Stylesheets -->
+                <link rel="stylesheet" href="../assets/css/global.css?h=06bca81b&amp;v=1.5.2">
                 
-                  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
-                  <link rel="manifest" href="../manifest.json">
-
-                  <!-- Lucide Icons Library -->
-                  <script src="https://unpkg.com/lucide@latest"></script>
-
-                  <script src="../assets/js/user-mode.js?h=01ed9a1d&amp;v=1.5.2"></script>
-                  <script src="../assets/js/persona.js?h=cb8fe906&amp;v=1.5.2"></script>
-
-                  <!-- Dark Mode Script (Blocking) -->
-                  <script>
-                    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                  </script>
-
-                  <!-- Vercel Analytics (Commented to fix 404 in non-Vercel environments)
-  <script>
-    window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/analytics/script.js"></script>
-  -->
-
-                  <!-- Vercel Speed Insights -->
-                  <script defer src="/_vercel/insights/script.js"></script>
-
-                  <!-- Schema.org Structured Data -->
+                  <link rel="stylesheet" href="../assets/features/percentage-calculator/style.css?h=f7fa4e3f&amp;v=1.5.2">
                   
+                    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+                    <link rel="manifest" href="../manifest.json">
+
+                    <!-- Lucide Icons Library -->
+                    <script src="https://unpkg.com/lucide@latest"></script>
+
+                    <script src="../assets/js/user-mode.js?h=d97d765c&amp;v=1.5.2"></script>
+                    <script src="../assets/js/persona.js?h=7777679f&amp;v=1.5.2"></script>
+
+                    <!-- Dark Mode Script (Blocking) -->
+                    <script>
+                      const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                      document.documentElement.setAttribute('data-theme', savedTheme);
+                    </script>
+
+                    <!-- Vercel Analytics (Commented to fix 404 in non-Vercel environments)
+<script>
+  window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+</script>
+<script defer src="/_vercel/analytics/script.js"></script>
+-->
+
+                    <!-- Vercel Speed Insights -->
+                    <script defer src="/_vercel/insights/script.js"></script>
+
+                    <!-- Schema.org Structured Data -->
+                    
 
   <script type="application/ld+json">
 [
@@ -343,9 +380,11 @@
                     Tính Lãi Kép
                   </span>
                   
-                    <span class="tool-badge beta"
-                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
-                    
+                      <span class="tool-badge hot"
+                        style="font-size: 0.6rem; padding: 2px 6px; margin-left: auto; position: static; width: auto; transform: none; background: #fff7ed; color: #c2410c; border: 1px solid #fb923c; border-radius: 4px; display: flex; align-items: center; gap: 3px; font-weight: 700;">
+                        <i data-lucide="sparkles" style="width: 10px; height: 10px;"></i> HOT
+                      </span>
+                      
                 </a>
                 
                 <a href="../inflation-calculator/"
@@ -833,7 +872,9 @@
     "feedback_error": "Có lỗi xảy ra, vui lòng thử lại sau.",
     "msg_starred": "Đã thêm vào yêu thích",
     "msg_unstarred": "Đã xóa khỏi yêu thích",
-    "msg_history_cleared": "Đã xóa lịch sử"
+    "msg_history_cleared": "Đã xóa lịch sử",
+    "subdomains": [{"domain":"blog.ph4n4n.xyz","path":"/blog/"},{"domain":"roadmap.ph4n4n.xyz","path":"/roadmap/"},{"domain":"json.ztools.site","path":"/json-toolkit/"},{"domain":"tncn.ztools.site","path":"/tax/"},{"domain":"laikep.ztools.site","path":"/compound-interest/"},{"domain":"playground.ztools.site","path":"/web-playground/"}],
+    "mainDomain": "ztools.site"
   }
 </script>
 
@@ -1055,7 +1096,7 @@
   </div>
 </section>
 
-<script src="../assets/features/percentage-calculator/script.js?h=08a8b5be&amp;v=1.5.2"></script>
+<script src="../assets/features/percentage-calculator/script.js?h=72d04a4a&amp;v=1.5.2"></script>
 
                 
           </main>
@@ -1205,7 +1246,7 @@
                   </div>
                   
 
-                    <script src="../assets/js/global.js?h=9d56f11f&amp;v=1.5.2"></script>
+                    <script src="../assets/js/global.js?h=1ec31edc&amp;v=1.5.2"></script>
                     <script>
                       // Initialize Lucide icons
                       if (window.lucide) {
