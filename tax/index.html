@@ -27,27 +27,26 @@
         // 0. Bypasses for development
         if (host === 'localhost' || host === '127.0.0.1' || host.includes('.local')) return;
 
-        // 1. Redirection: Path -> Subdomain
+        // 1. Redirection: Path -> Clean Subdomain
         const mappedSub = subdomains.find(s => path.startsWith(s.path));
 
-        // If on main domain but path has a dedicated subdomain -> Redirect
+        // If on main domain but path has a dedicated subdomain -> Redirect to clean subdomain
         if (mappedSub && host === mainDomain) {
           window.location.replace("https://" + mappedSub.domain + path.replace(mappedSub.path, '/'));
           return;
         }
 
-        // 2. Redirection: Wrong Subdomain -> Correct Subdomain (Cross-transition)
-        // If on a subdomain but path doesn't belong to it (or belongs to another)
+        // 2. Redirection: Wrong Subdomain -> Correct Clean Subdomain (Cross-transition)
+        if (mappedSub && mappedSub.domain !== host) {
+          window.location.replace("https://" + mappedSub.domain + path.replace(mappedSub.path, '/'));
+          return;
+        }
+
+        // 3. Redirection: If on subdomain but path still has the prefix (safety for old links)
         const currentSub = subdomains.find(s => s.domain === host);
-        if (currentSub) {
-          // Not on the root path of this subdomain, and it's not the correct content path
-          // (This is rare but keeps the routing clean)
-          if (mappedSub && mappedSub.domain !== host) {
-            window.location.replace("https://" + mappedSub.domain + path.replace(mappedSub.path, '/'));
-          } else if (!path.startsWith('/') && !mappedSub) {
-            // Fallback to main domain if path unknown and not on main
-            // window.location.replace("https://" + mainDomain + path);
-          }
+        if (currentSub && path.startsWith(currentSub.path)) {
+          window.location.replace("https://" + host + path.replace(currentSub.path, '/'));
+          return;
         }
       })();
     </script>
@@ -1597,7 +1596,7 @@
                   </div>
                   
 
-                    <script src="../assets/js/global.js?h=1ec31edc&amp;v=1.5.2"></script>
+                    <script src="../assets/js/global.js?h=d7fb9878&amp;v=1.5.2"></script>
                     <script>
                       // Initialize Lucide icons
                       if (window.lucide) {
