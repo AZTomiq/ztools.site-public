@@ -3,14 +3,14 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/compound-interest/:path*",
+      "source": "/web-playground/:path*",
       "has": [
         {
           "type": "host",
           "value": "ztools.site"
         }
       ],
-      "destination": "https://laikep.ztools.site/:path*",
+      "destination": "https://playground.ztools.site/:path*",
       "permanent": true
     },
     {
@@ -36,14 +36,14 @@
       "permanent": true
     },
     {
-      "source": "/web-playground/:path*",
+      "source": "/compound-interest/:path*",
       "has": [
         {
           "type": "host",
           "value": "ztools.site"
         }
       ],
-      "destination": "https://playground.ztools.site/:path*",
+      "destination": "https://laikep.ztools.site/:path*",
       "permanent": true
     },
     {
@@ -75,124 +75,64 @@
       "destination": "/assets/:path*"
     },
     {
-      "source": "/en/:path*",
+      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
         {
           "type": "host",
           "value": "playground.ztools.site"
         }
       ],
-      "destination": "/en/web-playground/:path*"
+      "destination": "/web-playground/$1"
     },
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "playground.ztools.site"
-        }
-      ],
-      "destination": "/web-playground/:path*"
-    },
-    {
-      "source": "/en/:path*",
+      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
         {
           "type": "host",
           "value": "tncn.ztools.site"
         }
       ],
-      "destination": "/en/tax/:path*"
+      "destination": "/tax/$1"
     },
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "tncn.ztools.site"
-        }
-      ],
-      "destination": "/tax/:path*"
-    },
-    {
-      "source": "/en/:path*",
+      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
         {
           "type": "host",
           "value": "laikep.ztools.site"
         }
       ],
-      "destination": "/en/compound-interest/:path*"
+      "destination": "/compound-interest/$1"
     },
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "laikep.ztools.site"
-        }
-      ],
-      "destination": "/compound-interest/:path*"
-    },
-    {
-      "source": "/en/:path*",
+      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
         {
           "type": "host",
           "value": "json.ztools.site"
         }
       ],
-      "destination": "/en/json-toolkit/:path*"
+      "destination": "/json-toolkit/$1"
     },
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "json.ztools.site"
-        }
-      ],
-      "destination": "/json-toolkit/:path*"
-    },
-    {
-      "source": "/en/:path*",
+      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
         {
           "type": "host",
           "value": "blog.ph4n4n.xyz"
         }
       ],
-      "destination": "/en/blog/:path*"
+      "destination": "/blog/$1"
     },
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "blog.ph4n4n.xyz"
-        }
-      ],
-      "destination": "/blog/:path*"
-    },
-    {
-      "source": "/en/:path*",
+      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
         {
           "type": "host",
           "value": "roadmap.ph4n4n.xyz"
         }
       ],
-      "destination": "/en/roadmap/:path*"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "roadmap.ph4n4n.xyz"
-        }
-      ],
-      "destination": "/roadmap/:path*"
+      "destination": "/roadmap/$1"
     },
     {
       "source": "/:path((?!en/|assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
