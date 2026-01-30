@@ -19,7 +19,7 @@
     <!-- Subdomain Routing (Shared-Code Strategy) -->
     <script>
       (function () {
-        const subdomains = ;
+        const subdomains = [{"domain":"blog.ph4n4n.xyz","path":"/blog/"},{"domain":"roadmap.ph4n4n.xyz","path":"/roadmap/"},{"domain":"json.ztools.site","path":"/json-toolkit/"},{"domain":"tncn.ztools.site","path":"/tax/"},{"domain":"laikep.ztools.site","path":"/compound-interest/"},{"domain":"playground.ztools.site","path":"/web-playground/"}];
         const host = window.location.hostname;
         const path = window.location.pathname;
         const mainDomain = "ztools.site";
@@ -127,13 +127,6 @@
                       const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
                       document.documentElement.setAttribute('data-theme', savedTheme);
                     </script>
-
-                    <!-- Vercel Analytics (Commented to fix 404 in non-Vercel environments)
-<script>
-  window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
-</script>
-<script defer src="/_vercel/analytics/script.js"></script>
--->
 
                     <!-- Vercel Speed Insights -->
                     <script defer src="/_vercel/insights/script.js"></script>
