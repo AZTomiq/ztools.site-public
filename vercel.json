@@ -4,31 +4,67 @@
   "redirects": [
     {
       "source": "/compound-interest/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        }
+      ],
       "destination": "https://laikep.ztools.site/:path*",
       "permanent": true
     },
     {
       "source": "/tax/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        }
+      ],
       "destination": "https://tncn.ztools.site/:path*",
       "permanent": true
     },
     {
       "source": "/json-toolkit/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        }
+      ],
       "destination": "https://json.ztools.site/:path*",
       "permanent": true
     },
     {
       "source": "/web-playground/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        }
+      ],
       "destination": "https://playground.ztools.site/:path*",
       "permanent": true
     },
     {
       "source": "/blog/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        }
+      ],
       "destination": "https://blog.ph4n4n.xyz/:path*",
       "permanent": true
     },
     {
       "source": "/roadmap/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        }
+      ],
       "destination": "https://roadmap.ph4n4n.xyz/:path*",
       "permanent": true
     }
@@ -54,25 +90,9 @@
         {
           "type": "host",
           "value": "playground.ztools.site"
-        },
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "VN",
-          "invert": true
         }
       ],
-      "destination": "/en/web-playground/:path"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "playground.ztools.site"
-        }
-      ],
-      "destination": "/web-playground/:path"
+      "destination": "/web-playground/:path*"
     },
     {
       "source": "/en/:path*",
@@ -90,25 +110,9 @@
         {
           "type": "host",
           "value": "tncn.ztools.site"
-        },
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "VN",
-          "invert": true
         }
       ],
-      "destination": "/en/tax/:path"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "tncn.ztools.site"
-        }
-      ],
-      "destination": "/tax/:path"
+      "destination": "/tax/:path*"
     },
     {
       "source": "/en/:path*",
@@ -126,25 +130,9 @@
         {
           "type": "host",
           "value": "laikep.ztools.site"
-        },
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "VN",
-          "invert": true
         }
       ],
-      "destination": "/en/compound-interest/:path"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "laikep.ztools.site"
-        }
-      ],
-      "destination": "/compound-interest/:path"
+      "destination": "/compound-interest/:path*"
     },
     {
       "source": "/en/:path*",
@@ -162,25 +150,9 @@
         {
           "type": "host",
           "value": "json.ztools.site"
-        },
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "VN",
-          "invert": true
         }
       ],
-      "destination": "/en/json-toolkit/:path"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "json.ztools.site"
-        }
-      ],
-      "destination": "/json-toolkit/:path"
+      "destination": "/json-toolkit/:path*"
     },
     {
       "source": "/en/:path*",
@@ -198,25 +170,9 @@
         {
           "type": "host",
           "value": "blog.ph4n4n.xyz"
-        },
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "VN",
-          "invert": true
         }
       ],
-      "destination": "/en/blog/:path"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "blog.ph4n4n.xyz"
-        }
-      ],
-      "destination": "/blog/:path"
+      "destination": "/blog/:path*"
     },
     {
       "source": "/en/:path*",
@@ -234,29 +190,17 @@
         {
           "type": "host",
           "value": "roadmap.ph4n4n.xyz"
-        },
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "VN",
-          "invert": true
         }
       ],
-      "destination": "/en/roadmap/:path"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "roadmap.ph4n4n.xyz"
-        }
-      ],
-      "destination": "/roadmap/:path"
+      "destination": "/roadmap/:path*"
     },
     {
       "source": "/:path((?!en/|assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        },
         {
           "type": "query",
           "key": "lang",
@@ -268,6 +212,10 @@
     {
       "source": "/:path((?!en/|assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
       "has": [
+        {
+          "type": "host",
+          "value": "ztools.site"
+        },
         {
           "type": "header",
           "key": "x-vercel-ip-country",
