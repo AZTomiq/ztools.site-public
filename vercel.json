@@ -1,0 +1,155 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/compound-interest/:path*",
+      "destination": "https://laikep.ztools.site/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/tax/:path*",
+      "destination": "https://tncn.ztools.site/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/json-toolkit/:path*",
+      "destination": "https://json.ztools.site/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/web-playground/:path*",
+      "destination": "https://playground.ztools.site/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "https://blog.ph4n4n.xyz/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/roadmap/:path*",
+      "destination": "https://roadmap.ph4n4n.xyz/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/compound-interest/:path*",
+      "destination": "https://laikep.ztools.site/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/tax/:path*",
+      "destination": "https://tncn.ztools.site/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/json-toolkit/:path*",
+      "destination": "https://json.ztools.site/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/web-playground/:path*",
+      "destination": "https://playground.ztools.site/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/:path*",
+      "destination": "https://blog.ph4n4n.xyz/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en/roadmap/:path*",
+      "destination": "https://roadmap.ph4n4n.xyz/en/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/:path((?!en/|assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/:path"
+    },
+    {
+      "source": "/:path((?!en/|assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "VN",
+          "invert": true
+        }
+      ],
+      "destination": "/en/:path"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.ph4n4n.xyz"
+        }
+      ],
+      "destination": "/blog/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "roadmap.ph4n4n.xyz"
+        }
+      ],
+      "destination": "/roadmap/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "laikep.ztools.site"
+        }
+      ],
+      "destination": "/compound-interest/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "json.ztools.site"
+        }
+      ],
+      "destination": "/json-toolkit/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tncn.ztools.site"
+        }
+      ],
+      "destination": "/tax/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "playground.ztools.site"
+        }
+      ],
+      "destination": "/web-playground/:path*"
+    }
+  ]
+}
