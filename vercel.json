@@ -45,28 +45,6 @@
       ],
       "destination": "https://laikep.ztools.site/:path*",
       "permanent": true
-    },
-    {
-      "source": "/blog/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "ztools.site"
-        }
-      ],
-      "destination": "https://blog.ph4n4n.xyz/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/roadmap/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "ztools.site"
-        }
-      ],
-      "destination": "https://roadmap.ph4n4n.xyz/:path*",
-      "permanent": true
     }
   ],
   "rewrites": [
@@ -75,64 +53,124 @@
       "destination": "/assets/:path*"
     },
     {
-      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "playground.ztools.site"
         }
       ],
-      "destination": "/web-playground/$1"
+      "destination": "/web-playground/index.html"
     },
     {
-      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/en/",
+      "has": [
+        {
+          "type": "host",
+          "value": "playground.ztools.site"
+        }
+      ],
+      "destination": "/en/web-playground/index.html"
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "playground.ztools.site"
+        }
+      ],
+      "destination": "/web-playground/:path"
+    },
+    {
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "tncn.ztools.site"
         }
       ],
-      "destination": "/tax/$1"
+      "destination": "/tax/index.html"
     },
     {
-      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/en/",
+      "has": [
+        {
+          "type": "host",
+          "value": "tncn.ztools.site"
+        }
+      ],
+      "destination": "/en/tax/index.html"
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "tncn.ztools.site"
+        }
+      ],
+      "destination": "/tax/:path"
+    },
+    {
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "laikep.ztools.site"
         }
       ],
-      "destination": "/compound-interest/$1"
+      "destination": "/compound-interest/index.html"
     },
     {
-      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/en/",
+      "has": [
+        {
+          "type": "host",
+          "value": "laikep.ztools.site"
+        }
+      ],
+      "destination": "/en/compound-interest/index.html"
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "laikep.ztools.site"
+        }
+      ],
+      "destination": "/compound-interest/:path"
+    },
+    {
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "json.ztools.site"
         }
       ],
-      "destination": "/json-toolkit/$1"
+      "destination": "/json-toolkit/index.html"
     },
     {
-      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/en/",
       "has": [
         {
           "type": "host",
-          "value": "blog.ph4n4n.xyz"
+          "value": "json.ztools.site"
         }
       ],
-      "destination": "/blog/$1"
+      "destination": "/en/json-toolkit/index.html"
     },
     {
-      "source": "/((?!assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/:path+",
       "has": [
         {
           "type": "host",
-          "value": "roadmap.ph4n4n.xyz"
+          "value": "json.ztools.site"
         }
       ],
-      "destination": "/roadmap/$1"
+      "destination": "/json-toolkit/:path"
     },
     {
       "source": "/:path((?!en/|assets/|api/|sw\\.js|manifest\\.json|sitemap\\.xml|robots\\.txt).*)",
