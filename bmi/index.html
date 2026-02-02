@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  (function () {
+    window.currentPath = "bmi";
+    const host = window.location.hostname;
+    const path = window.location.pathname;
+    const mainDomain = "ztools.site";
+    const subdomains = [{"domain":"blog.ph4n4n.xyz","path":"/blog/"},{"domain":"roadmap.ph4n4n.xyz","path":"/roadmap/"},{"domain":"json.ztools.site","path":"/json-toolkit/"},{"domain":"tncn.ztools.site","path":"/tax/"},{"domain":"laikep.ztools.site","path":"/compound-interest/"},{"domain":"playground.ztools.site","path":"/web-playground/"},{"domain":"amlich.ztools.site","path":"/lunar-calendar/"},{"domain":"lunar.ztools.site","path":"/lunar-calendar/"}];
+
+    // 0. Bypasses for development
+    if (host === 'localhost' || host === '127.0.0.1' || host.includes('.local')) return;
+
+    // 1. Logic cho Subdomain: Chỉ làm sạch path NẾU đã hiển thị đúng nội dung tool
+    const currentSub = subdomains.find(s => s.domain === host);
+    if (currentSub && path.startsWith(currentSub.path)) {
+      if (window.currentPath !== 'home') {
+        // "Bling Bling" magic: Thay đổi URL trên thanh địa chỉ mà KHÔNG tải lại trang
+        const cleanPath = path.replace(currentSub.path, '/');
+        window.history.replaceState(null, '', cleanPath);
+      }
+      return;
+    }
+
+    // 2. Logic cho Main Domain: Redirect sang subdomain tương ứng
+    if (host === mainDomain) {
+      const mappedSub = subdomains.find(s => path.startsWith(s.path));
+      if (mappedSub) {
+        window.location.replace("https://" + mappedSub.domain + path.replace(mappedSub.path, '/'));
+        return;
+      }
+    }
+
+    // 3. Rescue Logic: Hiển thị đúng feature trên subdomain nếu Vercel Rewrite lỗi
+    // Chỉ chạy nếu thực sự đang ở root và thấy nội dung Hub
+    if (currentSub && path === '/' && window.currentPath === 'home') {
+      window.location.replace("https://" + host + currentSub.path);
+      return;
+    }
+  })();
+</script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQ06SN6YNW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-JQ06SN6YNW');
+  </script>
+  
+
+    <title>
+      ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí
+    </title>
+    
+      <meta name="description" content="Công cụ tính chỉ số khối cơ thể (BMI) chuẩn xác, giúp đánh giá tình trạng cân nặng theo tiêu chuẩn quốc tế và IDI &amp; WPRO cho người Việt.">
+      
+        <meta name="keywords" content="bmi calculator, tính bmi, chỉ số khối cơ thể, sức khỏe, body mass index, chuẩn châu á">
+        
+
+          <!-- Canonical URL (Dynamic Subdomain Support) -->
+          
+            <link rel="canonical" href="https://ztools.site/bmi/" />
+
+            <!-- Hreflang Tags (Cross-Domain Support) -->
+            
+              <link rel="alternate" hreflang="vi" href="https://ztools.site/bmi/" />
+              <link rel="alternate" hreflang="en" href="https://ztools.site/en/bmi/" />
+              <link rel="alternate" hreflang="x-default" href="https://ztools.site/en/bmi/" />
+
+              <!-- Open Graph / Facebook -->
+              <meta property="og:type" content="article" />
+              <meta property="og:url" content="https://ztools.site/bmi/" />
+              <meta property="og:title" content="ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí" />
+              <meta property="og:description" content="Công cụ tính chỉ số khối cơ thể (BMI) chuẩn xác, giúp đánh giá tình trạng cân nặng theo tiêu chuẩn quốc tế và IDI &amp; WPRO cho người Việt." />
+              <meta property="og:image" content="https://ztools.site/assets/images/og-default.png" />
+              <meta property="og:site_name" content="ZTools" />
+              
+                <meta property="og:locale" content="vi_VN" />
+                <meta property="og:locale:alternate" content="en_US" />
+
+                <!-- Twitter Card -->
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:url" content="https://ztools.site/bmi/" />
+                <meta name="twitter:title" content="ZTools - Bộ Công Cụ Tiện Ích Online Miễn Phí" />
+                <meta name="twitter:description" content="Công cụ tính chỉ số khối cơ thể (BMI) chuẩn xác, giúp đánh giá tình trạng cân nặng theo tiêu chuẩn quốc tế và IDI &amp; WPRO cho người Việt." />
+                <meta name="twitter:image" content="https://ztools.site/assets/images/og-default.png" />
+
+                <!-- Author & Copyright -->
+                <meta name="author" content="Anph" />
+                <meta name="robots" content="index, follow" />
+
+                <!-- Fonts -->
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@400;500;600;700;800;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
+                  rel="stylesheet">
+
+                <!-- Prism.js for Code Highlighting -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+                  rel="stylesheet" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"
+                  defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"
+                  defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"
+                  defer></script>
+
+                <!-- Stylesheets -->
+                <link rel="stylesheet" href="../assets/css/global.css?h=d0748ef5&amp;v=1.5.2">
+                
+                  <link rel="stylesheet" href="../assets/features/bmi/style.css?h=e9334b9b&amp;v=1.5.2">
+                  
+                    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+                    <link rel="manifest" href="../manifest.json">
+
+                    <!-- Lucide Icons Library -->
+                    <script src="https://unpkg.com/lucide@latest"></script>
+
+                    <script src="../assets/js/user-mode.js?h=0b8211db&amp;v=1.5.2"></script>
+                    <script src="../assets/js/persona.js?h=e69c1263&amp;v=1.5.2"></script>
+
+                    <!-- Dark Mode Script (Blocking) -->
+                    <script>
+                      const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                      document.documentElement.setAttribute('data-theme', savedTheme);
+                    </script>
+
+                    <!-- Vercel Speed Insights -->
+                    <script defer src="/_vercel/insights/script.js"></script>
+
+                    <!-- Schema.org Structured Data -->
+                    
+
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ZTools",
+    "url": "https://ztools.site",
+    "description": "Bộ công cụ tiện ích online miễn phí, tính thuế TNCN, BMI, format JSON, và nhiều công cụ hữu ích khác cho người Việt.",
+    "inLanguage": "vi-VN",
+    "author": {
+      "@type": "Person",
+      "name": "Anph"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ztools.site/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tính chỉ số BMI",
+        "item": "https://ztools.site/vi/bmi/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Tính chỉ số BMI",
+    "description": "Công cụ tính chỉ số khối cơ thể (BMI) chuẩn xác, giúp đánh giá tình trạng cân nặng theo tiêu chuẩn quốc tế và IDI & WPRO cho người Việt.",
+    "url": "https://ztools.site/vi/bmi/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Works on all modern browsers (Chrome, Firefox, Safari, Edge).",
+    "softwareVersion": "1.0.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Anph"
+    },
+    "inLanguage": "vi-VN",
+    "image": "https://ztools.site/assets/images/logo.svg"
+  }
+]
+</script>
+</head>
+
+<body>
+  
+      
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="nav-item logo-wrapper">
+        <a href="https://ztools.site/" class="logo-link">
+          <img src="../assets/images/logo.svg" alt="ZTools Logo" class="logo-icon" width="28" height="28">
+          <span class="logo-text">ZTools</span>
+        </a>
+
+        <button class="menu-trigger dropdown-toggle" aria-haspopup="true" aria-expanded="false" title="Tools Menu"
+          style="background: none; border: none; padding: 4px; cursor: pointer; display: flex; align-items: center; margin-left: 5px;">
+          <i data-lucide="chevron-down" style="width: 16px; height: 16px; color: var(--text-muted); opacity: 0.6;"></i>
+        </button>
+
+
+        <div class="header-nav hide-mobile" style="margin-left: 1.5rem; display: flex; gap: 1rem;">
+          <a href="https://ztools.site/bookmark-creator/"
+            class="nav-link-prominent"
+            style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--primary-color);">
+            <span class="pulse-icon"><i data-lucide="star" style="width: 18px; height: 18px;"></i></span>
+            Bookmark Creator
+          </a>
+          <a href="#feedback-form" class="nav-link-secondary tool-request-link"
+            onclick="const sel = document.querySelector('.feedback-select'); if(sel) { sel.value='new_tool'; sel.dispatchEvent(new Event('change')); } document.querySelector('.feedback-textarea')?.focus();"
+            style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">
+            <i data-lucide="plus-square" style="width: 16px; height: 16px;"></i>
+            Yêu cầu tool mới
+          </a>
+        </div>
+
+        <div class="dropdown-menu mega-menu">
+  <div class="mega-sidebar">
+    <div class="mega-sidebar-header">
+      <a href="../" class="sidebar-logo logo-link">
+        <img src="../assets/images/logo.svg" alt="ZTools Logo" class="logo-icon" width="28" height="28">
+        <span class="logo-text">ZTools</span>
+      </a>
+    </div>
+    <div class="mega-sidebar-links">
+      
+        <a href="https://ztools.site/categories/"
+          class="mega-side-link ">
+          <span class="icon-wrap"><i data-lucide="folder-kanban"></i></span>
+          <span class="link-text">
+            Danh mục
+          </span>
+        </a>
+        <a href="https://blog.ph4n4n.xyz/"
+          class="mega-side-link ">
+          <span class="icon-wrap"><i data-lucide="pen-tool"></i></span>
+          <span class="link-text">
+            Dev ký sự
+          </span>
+        </a>
+        <a href="https://roadmap.ph4n4n.xyz/"
+          class="mega-side-link ">
+          <span class="icon-wrap"><i data-lucide="map"></i></span>
+          <span class="link-text">
+            Lộ trình (Skill Tree)
+          </span>
+        </a>
+        <a href="https://ztools.site/bookmark-creator/"
+          class="mega-side-link ">
+          <span class="icon-wrap"><i data-lucide="star" style="width: 18px; height: 18px;"></i></span>
+          <span class="link-text">
+            Bookmark Creator
+          </span>
+        </a>
+        <a href="../changelog/"
+          class="mega-side-link ">
+          <span class="icon-wrap"><i data-lucide="history"></i></span>
+          <span class="link-text">Changelogs</span>
+        </a>
+    </div>
+  </div>
+
+  <div class="mega-content-wrap">
+    
+      <div class="mega-grid">
+        
+          <div class="mega-cat-card accent-blue">
+            <div class="mega-cat-header">
+              <span class="mega-cat-icon"><i data-lucide="briefcase"></i></span>
+              <span class="mega-cat-title">
+                Việc làm &amp; Lương thưởng
+              </span>
+            </div>
+            <div class="mega-cat-links">
+              
+                <a href="https://ztools.site/business-tax/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính thuế TNDN
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/freelancer-tax/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Thuế Freelancer &amp; Hộ kinh doanh
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/ot-calculator/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính lương tăng ca (OT)
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/salary-tax-master/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Bộ Công Cụ Thuế &amp; Lương Master
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/social-insurance/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính BHXH &amp; Hưu trí
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://tncn.ztools.site/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính Thuế Thu Nhập Cá Nhân Việt Nam
+                  </span>
+                  
+                      <span class="tool-badge hot"
+                        style="font-size: 0.6rem; padding: 2px 6px; margin-left: auto; position: static; width: auto; transform: none; background: #fff7ed; color: #c2410c; border: 1px solid #fb923c; border-radius: 4px; display: flex; align-items: center; gap: 3px; font-weight: 700;">
+                        <i data-lucide="sparkles" style="width: 10px; height: 10px;"></i> HOT
+                      </span>
+                      
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="mega-cat-card accent-green">
+            <div class="mega-cat-header">
+              <span class="mega-cat-icon"><i data-lucide="line-chart"></i></span>
+              <span class="mega-cat-title">
+                Tài chính &amp; Ngân hàng
+              </span>
+            </div>
+            <div class="mega-cat-links">
+              
+                <a href="https://laikep.ztools.site/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính Lãi Kép
+                  </span>
+                  
+                      <span class="tool-badge hot"
+                        style="font-size: 0.6rem; padding: 2px 6px; margin-left: auto; position: static; width: auto; transform: none; background: #fff7ed; color: #c2410c; border: 1px solid #fb923c; border-radius: 4px; display: flex; align-items: center; gap: 3px; font-weight: 700;">
+                        <i data-lucide="sparkles" style="width: 10px; height: 10px;"></i> HOT
+                      </span>
+                      
+                </a>
+                
+                <a href="https://ztools.site/inflation-calculator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính lạm phát (Việt Nam)
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/investment-calc/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính hiệu quả đầu tư (ROI)
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/loan-calculator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính lãi vay
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/percentage-calculator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính Phần Trăm (%)
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/savings-interest/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính Lãi Suất Tiết Kiệm
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="mega-cat-card accent-slate">
+            <div class="mega-cat-header">
+              <span class="mega-cat-icon"><i data-lucide="type"></i></span>
+              <span class="mega-cat-title">
+                Công cụ Văn bản
+              </span>
+            </div>
+            <div class="mega-cat-links">
+              
+                <a href="https://ztools.site/lorem-ipsum/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tạo chữ mẫu Lorem Ipsum
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/text-diff/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    So Sánh Văn Bản
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/text-formatter/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Định Dạng Văn Bản - Xóa Style
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/word-counter/d/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Đếm từ &amp; Phân tích văn bản
+                  </span>
+                  
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="mega-cat-card accent-pink">
+            <div class="mega-cat-header">
+              <span class="mega-cat-icon"><i data-lucide="wand-2"></i></span>
+              <span class="mega-cat-title">
+                Generators (Tạo mã)
+              </span>
+            </div>
+            <div class="mega-cat-links">
+              
+                <a href="https://ztools.site/password-generator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tạo Mật Khẩu Mạnh
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/uuid-generator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    UUID Generator
+                  </span>
+                  
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="mega-cat-card accent-orange">
+            <div class="mega-cat-header">
+              <span class="mega-cat-icon"><i data-lucide="calendar"></i></span>
+              <span class="mega-cat-title">
+                Tiện ích đời sống
+              </span>
+            </div>
+            <div class="mega-cat-links">
+              
+                <a href="https://ztools.site/bmi/"
+                  class="mega-tool-link  active">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tính chỉ số BMI
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/bookmark-creator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Bookmark Creator
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/date-time-master/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Bộ Công Cụ Ngày Giờ Master
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/date-toolkit/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Công cụ Ngày tháng
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://amlich.ztools.site/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Xem Âm Lịch
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/random-toolkit/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Bộ công cụ Ngẫu nhiên
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/unit-converter/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Quy đổi đơn vị
+                  </span>
+                  
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="mega-cat-card accent-purple">
+            <div class="mega-cat-header">
+              <span class="mega-cat-icon"><i data-lucide="code"></i></span>
+              <span class="mega-cat-title">
+                Công cụ Lập trình (Dev)
+              </span>
+            </div>
+            <div class="mega-cat-links">
+              
+                <a href="https://ztools.site/cron-parser/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Giải mã biểu thức Cron
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/dev-toolkit/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Bộ Công Cụ Lập Trình
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/hash-toolkit/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Công cụ Base64 &amp; Hash
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://json.ztools.site/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Bộ công cụ JSON
+                  </span>
+                  
+                      <span class="tool-badge hot"
+                        style="font-size: 0.6rem; padding: 2px 6px; margin-left: auto; position: static; width: auto; transform: none; background: #fff7ed; color: #c2410c; border: 1px solid #fb923c; border-radius: 4px; display: flex; align-items: center; gap: 3px; font-weight: 700;">
+                        <i data-lucide="sparkles" style="width: 10px; height: 10px;"></i> HOT
+                      </span>
+                      
+                </a>
+                
+                <a href="https://ztools.site/jwt-toolkit/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Phân tích &amp; Giải mã JWT
+                  </span>
+                  
+                </a>
+                
+                <a href="https://ztools.site/qr-generator/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Tạo mã QR Code
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/timestamp-converter/"
+                  class="mega-tool-link mode-standard-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    Chuyển đổi Timestamp
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://ztools.site/url-toolkit/"
+                  class="mega-tool-link  ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    URL &amp; Base64 Toolkit
+                  </span>
+                  
+                    <span class="tool-badge beta"
+                      style="font-size: 0.5rem; padding: 1px 4px; margin-left: auto;">BETA</span>
+                    
+                </a>
+                
+                <a href="https://playground.ztools.site/"
+                  class="mega-tool-link mode-advanced-only ">
+                  <span class="tool-dot"></span>
+                  <span class="tool-label">
+                    zTool Playground
+                  </span>
+                  
+                      <span class="tool-badge hot"
+                        style="font-size: 0.6rem; padding: 2px 6px; margin-left: auto; position: static; width: auto; transform: none; background: #fff7ed; color: #c2410c; border: 1px solid #fb923c; border-radius: 4px; display: flex; align-items: center; gap: 3px; font-weight: 700;">
+                        <i data-lucide="sparkles" style="width: 10px; height: 10px;"></i> HOT
+                      </span>
+                      
+                </a>
+                
+            </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Desktop Search Box -->
+        <div class="header-search-box desktop-only" id="header-search-box">
+          <span class="search-box-icon"><i data-lucide="search" style="width: 18px; height: 18px;"></i></span>
+          <input type="text" class="header-search-input" placeholder="Tìm kiếm công cụ... (Ctrl + K)" readonly>
+          <kbd>Ctrl+K</kbd>
+        </div>
+
+        <a href="https://ztools.site/categories/" class="btn-icon"
+          title="Danh mục" aria-label="Categories">
+          <i data-lucide="grid-3x3"></i>
+        </a>
+
+        <button id="search-btn-mobile" class="btn-icon search-trigger mobile-only" title="Tìm kiếm công cụ"
+          aria-label="Search">
+          <i data-lucide="search"></i>
+        </button>
+
+        <div class="nav-item preferences-wrapper">
+          <button class="btn-icon dropdown-toggle" id="prefs-btn" aria-haspopup="true" aria-expanded="false"
+            title="Tùy chỉnh">
+            <i data-lucide="sliders-horizontal"></i>
+          </button>
+
+          <div class="dropdown-menu preferences-dropdown">
+            <div class="prefs-section">
+              <div class="prefs-label">
+                Giao diện
+              </div>
+              <div class="prefs-row">
+                <span class="prefs-row-label">
+                  Chủ đề
+                </span>
+                <button id="theme-toggle" class="mode-toggle-btn theme-toggle-compact" aria-label="Toggle Dark Mode">
+                  <i data-lucide="moon" class="theme-icon-light"></i>
+                  <i data-lucide="sun" class="theme-icon-dark"></i>
+                  <span id="theme-text">
+                    Chế độ tối
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class="prefs-section">
+              <div class="prefs-label">
+                Ngôn ngữ
+              </div>
+              <div class="prefs-row">
+                
+                  <a href="https://ztools.site/bmi/" class="pref-lang-btn active"
+                    title="Tiếng Việt">
+                    <span class="lang-flag">
+                      🇻🇳
+                    </span>
+                    <span class="lang-name">
+                      Việt
+                    </span>
+                  </a>
+                  
+                  <a href="https://ztools.site/en/bmi/" class="pref-lang-btn "
+                    title="English">
+                    <span class="lang-flag">
+                      🇺🇸
+                    </span>
+                    <span class="lang-name">
+                      Eng
+                    </span>
+                  </a>
+                  
+              </div>
+            </div>
+
+            <div class="prefs-section">
+              <div class="prefs-label">
+                Chế độ dùng
+              </div>
+              <button id="mode-toggle" class="mode-toggle-btn full-width" title="Chế độ Nâng cao (Đầy đủ, Master Tools)">
+                <span class="mode-text">
+                  Standard
+                </span>
+                <div class="mode-switch">
+                  <div class="mode-slider">
+                    <span class="mode-icon"><i data-lucide="zap" style="width: 12px; height: 12px;"></i></span>
+                  </div>
+                </div>
+                <span class="mode-text">
+                  Advanced
+                </span>
+              </button>
+            </div>
+
+            <div class="prefs-section no-border">
+              <div class="prefs-label">
+                Bạn là ai?
+              </div>
+              <div class="persona-options-grid">
+                <button class="persona-option" data-value="none">🎯 <span>Just Browsing</span></button>
+                <button class="persona-option" data-value="dev">👨‍💻 <span>Developer</span></button>
+                <button class="persona-option" data-value="pro">👩‍💼 <span>Professional</span></button>
+                <button class="persona-option" data-value="finance">💰 <span>Investor</span></button>
+                <button class="persona-option" data-value="creator">🎨 <span>Creator</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Overlay / Modal (Reusable by hidden header mode) -->
+<div id="search-modal" class="search-modal">
+  <div class="search-overlay"></div>
+  <div class="search-container">
+    <div class="search-header">
+      <span class="search-icon" aria-hidden="true"><i data-lucide="search"></i></span>
+      <input type="text" id="search-input" placeholder="Tìm kiếm công cụ... (Ctrl + K)" autocomplete="off"
+        aria-label="Tìm kiếm công cụ... (Ctrl + K)">
+      <button id="close-search" class="close-search"
+        aria-label="Đóng tìm kiếm">&times;</button>
+    </div>
+    <div id="search-results" class="search-results">
+      <!-- Results will be injected here -->
+    </div>
+    <div class="search-footer">
+      <div class="search-hints">
+        <span><kbd>↵</kbd> Select</span>
+        <span><kbd>↑↓</kbd> Navigate</span>
+        <span><kbd>esc</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Embed i18n data for client-side JS -->
+<script id="i18n-data" type="application/json">
+  {
+    "search_no_results": "Không tìm thấy kết quả cho",
+    "feedback_success": "Cảm ơn bạn đã nhắn nhủ! Ý kiến của bạn đã được gửi đến đội ngũ.",
+    "feedback_error": "Có lỗi xảy ra, vui lòng thử lại sau.",
+    "msg_starred": "Đã thêm vào yêu thích",
+    "msg_unstarred": "Đã xóa khỏi yêu thích",
+    "msg_history_cleared": "Đã xóa lịch sử",
+    "subdomains": [{"domain":"blog.ph4n4n.xyz","path":"/blog/"},{"domain":"roadmap.ph4n4n.xyz","path":"/roadmap/"},{"domain":"json.ztools.site","path":"/json-toolkit/"},{"domain":"tncn.ztools.site","path":"/tax/"},{"domain":"laikep.ztools.site","path":"/compound-interest/"},{"domain":"playground.ztools.site","path":"/web-playground/"},{"domain":"amlich.ztools.site","path":"/lunar-calendar/"},{"domain":"lunar.ztools.site","path":"/lunar-calendar/"}],
+    "mainDomain": "ztools.site"
+  }
+</script>
+
+<!-- Embed tools data for client-side search -->
+<script id="tools-data" type="application/json">
+  
+  [{"id":"blog","link":"https://blog.ph4n4n.xyz/","icon":"pen-tool","title":"Chuyện Nghề Dev","desc":"Hậu trường, kỹ thuật và những dòng tâm sự của đội ngũ phát triển.","category":"home.cats.legacy.title"},{"id":"bmi","link":"https://ztools.site/bmi/","icon":"scale","title":"Tính chỉ số BMI","desc":"Công cụ tính chỉ số khối cơ thể (BMI) chuẩn xác, giúp đánh giá tình trạng cân nặng theo tiêu chuẩn quốc tế và IDI & WPRO cho người Việt.","category":"Tiện ích đời sống"},{"id":"bookmark-creator","link":"https://ztools.site/bookmark-creator/","icon":"bookmark","title":"Bookmark Creator","desc":"Tạo bộ bookmark cá nhân cho trình duyệt của bạn với các công cụ yêu thích trên ZTools.","category":"Tiện ích đời sống"},{"id":"business-tax","link":"https://ztools.site/business-tax/","icon":"briefcase","title":"Tính thuế TNDN","desc":"Công cụ tính toán thuế thu nhập doanh nghiệp (TNDN) chính xác và nhanh chóng. Hỗ trợ cả phương pháp trực tiếp và gián tiếp.","category":"Việc làm & Lương thưởng"},{"id":"compound-interest","link":"https://laikep.ztools.site/","icon":"trending-up","title":"Tính Lãi Kép","desc":"Công cụ tính lãi suất kép online chính xác nhất. Tính toán giá trị tương lai của khoản đầu tư với lãi suất gộp hàng tháng/năm.","category":"Tài chính & Ngân hàng"},{"id":"cron-parser","link":"https://ztools.site/cron-parser/","icon":"terminal","title":"Giải mã biểu thức Cron","desc":"Giải mã biểu thức Cron sang ngôn ngữ tự nhiên.","category":"Công cụ Lập trình (Dev)"},{"id":"date-time-master","link":"https://ztools.site/date-time-master/","icon":"calendar-clock","title":"Bộ Công Cụ Ngày Giờ Master","desc":"Bộ công cụ toàn diện: Tính khoảng cách, cộng trừ ngày và chuyển đổi Unix Timestamp.","category":"Tiện ích đời sống"},{"id":"date-toolkit","link":"https://ztools.site/date-toolkit/","icon":"calendar-days","title":"Công cụ Ngày tháng","desc":"Tính khoảng cách ngày, cộng trừ thời gian và đếm ngược.","category":"Tiện ích đời sống"},{"id":"dev-memes","link":"https://ztools.site/dev-memes/","icon":"smile","title":"DEV Memes","desc":"Nơi xả stress cho anh em Developer","category":"DEV Memes"},{"id":"dev-toolkit","link":"https://ztools.site/dev-toolkit/","icon":"code","title":"Bộ Công Cụ Lập Trình","desc":"Bộ công cụ lập trình toàn diện cho developers","category":"Công cụ Lập trình (Dev)"},{"id":"freelancer-tax","link":"https://ztools.site/freelancer-tax/","icon":"receipt","title":"Thuế Freelancer & Hộ kinh doanh","desc":"Tính thuế vĩnh lai (10%) hoặc thuế khoán cho hộ kinh doanh cá thể.","category":"Việc làm & Lương thưởng"},{"id":"glassmorphism-generator","link":"https://ztools.site/glassmorphism-generator/","icon":"sparkles","title":"Trình Tạo Glassmorphism","desc":"Tạo hiệu ứng kính mờ đẹp mắt cho giao diện web với xem trước trực tiếp","category":"home.cats.dev-tools.title"},{"id":"hash-toolkit","link":"https://ztools.site/hash-toolkit/","icon":"lock","title":"Công cụ Base64 & Hash","desc":"Mã hóa/Giải mã Base64 và tạo các mã băm mật mã như MD5, SHA256 nhanh chóng.","category":"Công cụ Lập trình (Dev)"},{"id":"inflation-calculator","link":"https://ztools.site/inflation-calculator/","icon":"line-chart","title":"Tính lạm phát (Việt Nam)","desc":"Tính toán trượt giá tiền tệ và sức mua của đồng tiền qua các năm.","category":"Tài chính & Ngân hàng"},{"id":"investment-calc","link":"https://ztools.site/investment-calc/","icon":"piggy-bank","title":"Tính hiệu quả đầu tư (ROI)","desc":"Tính toán lợi nhuận (ROI) và tỷ suất sinh lời hàng năm (CAGR).","category":"Tài chính & Ngân hàng"},{"id":"json-toolkit","link":"https://json.ztools.site/","icon":"braces","title":"Bộ công cụ JSON","desc":"Format, validate, và convert JSON. Bao gồm Tree view và công cụ xử lý dữ liệu.","category":"Công cụ Lập trình (Dev)"},{"id":"jwt-toolkit","link":"https://ztools.site/jwt-toolkit/","icon":"key","title":"Phân tích & Giải mã JWT","desc":"Giải mã và kiểm tra cấu trúc JSON Web Token (JWT) an toàn ngay trên trình duyệt.","category":"Công cụ Lập trình (Dev)"},{"id":"loan-calculator","link":"https://ztools.site/loan-calculator/","icon":"home","title":"Tính lãi vay","desc":"Công cụ tính lịch trả nợ vay ngân hàng chi tiết. Hỗ trợ tính theo dư nợ giảm dần hoặc dư nợ gốc ban đầu.","category":"Tài chính & Ngân hàng"},{"id":"lorem-ipsum","link":"https://ztools.site/lorem-ipsum/","icon":"pilcrow","title":"Tạo chữ mẫu Lorem Ipsum","desc":"Tạo văn bản giả Lorem Ipsum cho thiết kế và dàn trang.","category":"Công cụ Văn bản"},{"id":"lunar-calendar","link":"https://amlich.ztools.site/","icon":"moon","title":"Xem Âm Lịch","desc":"Chuyển đổi Dương lịch sang Âm lịch, xem Can Chi, Giờ Hoàng Đạo","category":"Tiện ích đời sống"},{"id":"ot-calculator","link":"https://ztools.site/ot-calculator/","icon":"clock","title":"Tính lương tăng ca (OT)","desc":"Tính chính xác tiền lương làm thêm giờ theo Luật Lao động mới nhất","category":"Việc làm & Lương thưởng"},{"id":"password-generator","link":"https://ztools.site/password-generator/","icon":"key-round","title":"Tạo Mật Khẩu Mạnh","desc":"Tạo mật khẩu ngẫu nhiên, an toàn và bảo mật cao.","category":"Generators (Tạo mã)"},{"id":"percentage-calculator","link":"https://ztools.site/percentage-calculator/","icon":"percent","title":"Tính Phần Trăm (%)","desc":"Công cụ tính phần trăm online tiện lợi. Tính % của số, tính giá trị sau khi tăng/giảm %, tính tỷ lệ % giữa 2 số.","category":"Tài chính & Ngân hàng"},{"id":"qr-generator","link":"https://ztools.site/qr-generator/","icon":"qr-code","title":"Tạo mã QR Code","desc":"Tạo mã QR cho liên kết, văn bản và nhiều hơn thế. Hoạt động offline đảm bảo quyền riêng tư.","category":"Công cụ Lập trình (Dev)"},{"id":"random-toolkit","link":"https://ztools.site/random-toolkit/","icon":"dices","title":"Bộ công cụ Ngẫu nhiên","desc":"Tạo số ngẫu nhiên, tung xúc xắc và chọn ngẫu nhiên từ danh sách.","category":"Tiện ích đời sống"},{"id":"salary-tax-master","link":"https://ztools.site/salary-tax-master/","icon":"wallet","title":"Bộ Công Cụ Thuế & Lương Master","desc":"Bộ công cụ đầy đủ về Lương và Thuế: TNCN, TNDN, Freelancer, Bảo hiểm xã hội và Tính lương OT.","category":"Việc làm & Lương thưởng"},{"id":"savings-interest","link":"https://ztools.site/savings-interest/","icon":"coins","title":"Tính Lãi Suất Tiết Kiệm","desc":"Công cụ tính lãi gửi tiết kiệm ngân hàng nhanh chóng. Hỗ trợ tính lãi cuối kỳ, lãi hàng tháng cho các kỳ hạn gửi khác nhau.","category":"Tài chính & Ngân hàng"},{"id":"social-insurance","link":"https://ztools.site/social-insurance/","icon":"shield-plus","title":"Tính BHXH & Hưu trí","desc":"Tính BHXH bắt buộc vs Tự nguyện.","category":"Việc làm & Lương thưởng"},{"id":"tax","link":"https://tncn.ztools.site/","icon":"banknote","title":"Tính Thuế Thu Nhập Cá Nhân Việt Nam","desc":"Cập nhật Luật Thuế TNCN 2025 & Nghị quyết 110/2025/UBTVQH15 (áp dụng từ kỳ tính thuế 2026)","category":"Việc làm & Lương thưởng"},{"id":"text-diff","link":"https://ztools.site/text-diff/","icon":"file-diff","title":"So Sánh Văn Bản","desc":"So sánh sự khác biệt giữa hai đoạn văn bản, làm nổi bật các phần thêm, xóa, sửa.","category":"Công cụ Văn bản"},{"id":"text-formatter","link":"https://ztools.site/text-formatter/","icon":"wand-2","title":"Định Dạng Văn Bản - Xóa Style","desc":"Loại bỏ định dạng và làm sạch văn bản khi copy từ web.","category":"Công cụ Văn bản"},{"id":"timestamp-converter","link":"https://ztools.site/timestamp-converter/","icon":"clock","title":"Chuyển đổi Timestamp","desc":"Chuyển đổi thời gian giữa định dạng Unix Timestamp và ngày tháng thực tế.","category":"Công cụ Lập trình (Dev)"},{"id":"unit-converter","link":"https://ztools.site/unit-converter/","icon":"ruler","title":"Quy đổi đơn vị","desc":"Công cụ quy đổi chiều dài, khối lượng, thể tích, diện tích và nhiều đơn vị khác.","category":"Tiện ích đời sống"},{"id":"url-toolkit","link":"https://ztools.site/url-toolkit/","icon":"link","title":"URL & Base64 Toolkit","desc":"Mã hóa/Giải mã URL, Base64 và phân tích cấu trúc URL nhanh chóng.","category":"Công cụ Lập trình (Dev)"},{"id":"uuid-generator","link":"https://ztools.site/uuid-generator/","icon":"fingerprint","title":"UUID Generator","desc":"Tạo UUID/GUID ngẫu nhiên (V1, V4, V7) nhanh chóng.","category":"Generators (Tạo mã)"},{"id":"web-playground","link":"https://playground.ztools.site/","icon":"code-2","title":"zTool Playground","desc":"Trình soạn thảo HTML/CSS/JS online, chạy ngay trên trình duyệt, không cần server.","category":"Công cụ Lập trình (Dev)"},{"id":"word-counter","link":"https://ztools.site/word-counter/d","icon":"bar-chart-3","title":"Đếm từ & Phân tích văn bản","desc":"Đếm từ, phân tích tần suất và chuyển đổi chữ hoa/thường (Case Converter).","category":"Công cụ Văn bản"}]
+</script>
+  </header>
+        
+
+          <main class="container">
+            
+  <nav class="breadcrumbs-container" aria-label="Breadcrumb">
+    <ol class="breadcrumbs-list">
+      
+        <li class="breadcrumb-item">
+          <a href="https://ztools.site/" class="breadcrumb-link"
+            title="Trang chủ">
+            <i data-lucide="home"></i>
+          </a>
+        </li>
+
+        
+          <li class="breadcrumb-separator">
+            <i data-lucide="chevron-right"></i>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="https://ztools.site/categories/#cat-daily"
+              class="breadcrumb-link">
+              Tiện ích đời sống
+            </a>
+          </li>
+          
+
+            <li class="breadcrumb-separator">
+              <i data-lucide="chevron-right"></i>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <span class="breadcrumb-current">
+                Tính chỉ số BMI
+              </span>
+            </li>
+    </ol>
+  </nav>
+
+  <style>
+    .breadcrumbs-container {
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumbs-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .breadcrumb-link i {
+      width: 14px;
+      height: 14px;
+    }
+
+    .breadcrumb-link:hover {
+      color: var(--primary-color);
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-separator i {
+      width: 14px;
+      height: 14px;
+    }
+
+    .breadcrumb-current {
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    @media (max-width: 600px) {
+      .breadcrumbs-container {
+        padding: 0.75rem 0;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+  
+              <!-- title: Tính chỉ số BMI - ZTools -->
+<link rel="stylesheet" href="../assets/features/bmi/style.css?h=e9334b9b&amp;v=1.5.2">
+
+<section class="tool-container">
+  <div class="page-header">
+    <h1>⚖️ Tính chỉ số BMI
+
+        
+          <button class="version-badge" id="open-changelog" aria-label="View Changelog">v1.0.0
+          </button>
+          
+    </h1>
+    <p>
+      Công cụ tính chỉ số khối cơ thể (BMI) chuẩn xác, giúp đánh giá tình trạng cân nặng theo tiêu chuẩn quốc tế và IDI &amp; WPRO cho người Việt.
+    </p>
+  </div>
+
+  <div class="card tool-card" style="margin-top: 2rem;">
+    <form id="bmi-form">
+      <div class="form-group">
+        <label for="height">
+          Chiều cao (cm)
+        </label>
+        <input type="number" id="height" required placeholder="Ví dụ: 170" min="50" max="250">
+      </div>
+
+      <div class="form-group">
+        <label for="weight">
+          Cân nặng (kg)
+        </label>
+        <input type="number" id="weight" required placeholder="Ví dụ: 65" min="20" max="300"
+          step="0.1">
+      </div>
+
+      <button type="submit" class="btn" style="width: 100%;">
+        Tính toán ngay
+      </button>
+    </form>
+
+    <div id="result-box" class="result-box" style="display: none; margin-top: 2rem;">
+      <h2>
+        Kết quả của bạn
+      </h2>
+      <p>
+        Chỉ số BMI: <strong id="bmi-value" style="font-size: 1.5rem;">--</strong>
+      </p>
+      <p>
+        Phân loại: <strong id="bmi-category">--</strong>
+      </p>
+      <p id="bmi-feedback" style="margin-top: 1rem; font-style: italic;"></p>
+    </div>
+  </div>
+
+  <div class="card info-card" style="margin-top: 2rem;">
+    <h3>
+      Thông tin tham khảo
+    </h3>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+      <thead>
+        <tr style="background: var(--bg-hover); text-align: left;">
+          <th style="padding: 0.5rem;">
+            Phân loại
+          </th>
+          <th style="padding: 0.5rem;">
+            BMI (kg/m²)
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 0.5rem; border-bottom: 1px solid var(--border-color);">
+            Nhẹ cân
+          </td>
+          <td style="padding: 0.5rem; border-bottom: 1px solid var(--border-color);">&lt; 18.5</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5rem; border-bottom: 1px solid var(--border-color);">
+            Bình thường
+          </td>
+          <td style="padding: 0.5rem; border-bottom: 1px solid var(--border-color);">18.5 - 22.9</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5rem; border-bottom: 1px solid var(--border-color);">
+            Thừa cân
+          </td>
+          <td style="padding: 0.5rem; border-bottom: 1px solid var(--border-color);">23 - 24.9</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5rem;">
+            Béo phì
+          </td>
+          <td style="padding: 0.5rem;">&ge; 25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script src="../assets/features/bmi/logic.js"></script>
+<script src="../assets/features/bmi/script.js?h=53bab6c4&amp;v=1.5.2"></script>
+
+                
+                  <section class="card how-to-use-section" style="margin-top: 3rem;">
+                    <h2 style="margin-bottom: 1rem;">📖 Hướng dẫn sử dụng
+                    </h2>
+                    <div class="markdown-body">
+                      <h3>Hướng dẫn sử dụng công cụ tính chỉ số BMI</h3>
+<p>Chỉ số khối cơ thể (<strong>BMI - Body Mass Index</strong>) là công cụ phổ biến nhất để xác định tình trạng cân nặng của một người dựa trên chiều cao và cân nặng.</p>
+<ol>
+<li><strong>Nhập giới tính</strong>: Để có các lời khuyên phù hợp hơn.</li>
+<li><strong>Nhập cân nặng</strong>: Tính bằng Kilogram (kg).</li>
+<li><strong>Nhập chiều cao</strong>: Tính bằng Centimet (cm). Ví dụ: 1m70 nhập là 170.</li>
+<li><strong>Xem kết quả</strong>: Hệ thống sẽ hiển thị chỉ số BMI của bạn kèm theo phân loại (Gầy, Bình thường, Thừa cân, Béo phì).</li>
+</ol>
+<hr>
+<h3>Phân loại chỉ số BMI (Chuẩn Châu Á - IDI/WPRO)</h3>
+<p>Đối với người trưởng thành tại Việt Nam và Châu Á, các chuyên gia thường khuyến nghị sử dụng bảng phân loại sau:</p>
+<table>
+<thead>
+<tr>
+<th>Chỉ số BMI</th>
+<th>Phân loại</th>
+<th>rủi ro bệnh tật</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt; 18.5</td>
+<td>Gầy</td>
+<td>Thấp</td>
+</tr>
+<tr>
+<td>18.5 - 22.9</td>
+<td>Bình thường</td>
+<td>Trung bình</td>
+</tr>
+<tr>
+<td>23.0 - 24.9</td>
+<td>Tiền béo phì</td>
+<td>Tăng</td>
+</tr>
+<tr>
+<td>25.0 - 29.9</td>
+<td>Béo phì độ I</td>
+<td>Cao</td>
+</tr>
+<tr>
+<td>&gt;= 30.0</td>
+<td>Béo phì độ II</td>
+<td>Rất cao</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Tại sao bạn nên quan tâm đến BMI?</h3>
+<p>Duy trì chỉ số BMI trong khoảng &quot;Bình thường&quot; giúp giảm đáng kể rủi ro mắc các bệnh liên quan đến lối sống như cao huyết áp, tiểu đường tuýp 2 và các bệnh tim mạch. Tuy nhiên, BMI không thể hiện chính xác lượng mỡ so với cơ bắp (như trường hợp vận động viên thể hình).</p>
+<p><strong>Lưu ý:</strong> Nếu bạn đang mang thai hoặc là vận động viên chuyên nghiệp, hãy tham vấn ý kiến bác sĩ thay vì chỉ dựa vào chỉ số BMI.</p>
+
+                    </div>
+                  </section>
+                  
+          </main>
+
+          
+            <footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <h3>
+        ZTools.site
+      </h3>
+      <p>
+        Bộ công cụ tiện ích miễn phí, đơn giản và bảo mật.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>
+        Liên kết
+      </h4>
+      <ul>
+        <li><a href="https://ztools.site/about/">
+            Giới thiệu
+          </a></li>
+        <li><a href="https://ztools.site/privacy/">
+            Chính sách
+          </a></li>
+        <li><a href="https://ztools.site/terms/">
+            Điều khoản
+          </a></li>
+        <li><a href="https://ztools.site/changelog/">
+            Nhật ký cập nhật
+          </a></li>
+        <li><a href="https://github.com/AZTomiq/ztools.site-public" target="_blank" rel="noopener noreferrer"
+            aria-label="View Source on GitHub">
+            GitHub Source
+          </a></li>
+        <li><a href="#feedback-form"
+            onclick="const sel = document.querySelector('.feedback-select'); if(sel) { sel.value='new_tool'; sel.dispatchEvent(new Event('change')); } document.querySelector('.feedback-textarea')?.focus();">
+            Yêu cầu tool mới
+          </a></li>
+      </ul>
+    </div>
+    <div class="footer-col feedback-col">
+      <div class="feedback-card">
+        <div class="feedback-header">
+          <div class="feedback-icon-title">
+            <i data-lucide="message-square-heart" class="warm-icon"></i>
+            <h4>
+              Nhắn nhủ ZTools
+            </h4>
+          </div>
+          <p class="feedback-desc">
+            Chúng tôi luôn ở đây để lắng nghe! Bạn có điều gì muốn nhắn nhủ đến đội ngũ ZTools.site?
+          </p>
+        </div>
+
+        <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST" class="feedback-form">
+          <div class="feedback-row">
+            <div class="feedback-input-group">
+              <input type="text" name="name" placeholder="Tên của bạn (không bắt buộc)" class="feedback-input">
+              <i data-lucide="user" class="input-icon"></i>
+            </div>
+            <div class="feedback-input-group">
+              <input type="email" name="email" placeholder="Email liên hệ (không bắt buộc)" class="feedback-input">
+              <i data-lucide="mail" class="input-icon"></i>
+            </div>
+          </div>
+
+          <div class="feedback-input-group select-wrap">
+            <select name="topic" class="feedback-input feedback-select">
+              <option value="general">
+                Góp ý chung
+              </option>
+              <option value="new_tool">
+                Yêu cầu tool mới
+              </option>
+              <option value="bug">
+                Báo lỗi hệ thống
+              </option>
+              <option value="ui">
+                Góp ý giao diện
+              </option>
+            </select>
+            <i data-lucide="layers" class="input-icon"></i>
+          </div>
+
+          <div class="feedback-input-group">
+            <textarea name="message" placeholder="Nhập nội dung chi tiết..." required
+              class="feedback-input feedback-textarea"></textarea>
+            <i data-lucide="pen-tool" class="input-icon textarea-icon"></i>
+          </div>
+          <button type="submit" class="btn-primary feedback-submit-premium">
+            <span>
+              Gửi lời nhắn đến đội ngũ
+            </span>
+            <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+          </button>
+          <div id="feedback-status" class="feedback-status"></div>
+        </form>
+
+        <p class="feedback-slogan">
+          <i data-lucide="quote" style="width: 12px; height: 12px; opacity: 0.5;"></i>
+          <span>
+            Những góp ý của bạn là động lực của chúng tôi! Xin chân thành cảm ơn!
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <div class="footer-bottom-unified">
+      <div class="footer-copyright-wrap">
+        <div class="footer-copyright-text">
+          &copy; 2026 AZtomiq. All rights reserved. Registered in Vietnam.
+        </div>
+        <div class="footer-dmca-badge">
+          <a href="//www.dmca.com/Protection/Status.aspx?ID=375b6320-f1c3-4d2d-8b01-1b9195b6c694"
+            title="DMCA.com Protection Status" class="dmca-badge">
+            <img
+              src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=375b6320-f1c3-4d2d-8b01-1b9195b6c694"
+              alt="DMCA.com Protection Status" />
+          </a>
+          <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+        </div>
+      </div>
+      <div class="footer-powered-by">
+        Powered by <a href="https://github.com/AZTomiq/aztomiq" target="_blank" rel="noopener noreferrer">AZtomiq
+          Core</a>
+        v1.5.2
+      </div>
+    </div>
+  </div>
+</footer>
+              
+
+                
+                  <!-- Changelog Modal -->
+                  <div id="changelog-modal" class="search-modal">
+                    <div class="search-overlay" id="close-changelog-overlay"></div>
+                    <div class="search-container">
+                      <div class="search-header">
+                        <span class="search-icon"><i data-lucide="file-clock"
+                            style="width: 20px; height: 20px;"></i></span>
+                        <h2 style="flex: 1; margin: 0; font-size: 1.25rem;">
+                          Nhật ký thay đổi
+                        </h2>
+                        <button id="close-changelog" class="close-search">&times;</button>
+                      </div>
+                      <div class="changelog-content">
+                        <h1>Changelog - bmi</h1>
+<h2>[1.0.0] - 2024-12-18</h2>
+<ul>
+<li>Initial release.</li>
+</ul>
+
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                    <script src="../assets/js/global.js?h=18df6a91&amp;v=1.5.2"></script>
+                    <script>
+                      // Initialize Lucide icons
+                      if (window.lucide) {
+                        lucide.createIcons();
+                      }
+                    </script>
+
+                    
+</body>
+
+</html>
