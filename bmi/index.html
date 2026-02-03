@@ -116,7 +116,7 @@
                   defer></script>
 
                 <!-- Stylesheets -->
-                <link rel="stylesheet" href="../assets/css/global.css?h=f3232b07&amp;v=1.5.2">
+                <link rel="stylesheet" href="../assets/css/global.css?h=fddc26af&amp;v=1.5.2">
                 
                   <link rel="stylesheet" href="../assets/features/bmi/style.css?h=e9334b9b&amp;v=1.5.2">
                   
@@ -1213,7 +1213,14 @@
             </div>
           </div>
 
-          <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST">
+          <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST"
+            onsubmit="this.querySelector('input[name=_timestamp]').value = new Date().toISOString()">
+            <div class="input-with-icon">
+              <i data-lucide="user"></i>
+              <input type="text" name="name" placeholder="Tên của bạn (không bắt buộc)"
+                class="premium-input" required>
+            </div>
+
             <div class="input-with-icon">
               <i data-lucide="mail"></i>
               <input type="email" name="email" placeholder="Email liên hệ (không bắt buộc)"
@@ -1226,7 +1233,13 @@
                 class="premium-textarea" rows="2"></textarea>
             </div>
 
-            <input type="hidden" name="topic" value="general">
+            <input type="hidden" name="topic" value="general" class="feedback-select">
+
+            <!-- Hidden Meta Fields -->
+            <input type="hidden" name="_timestamp" value="">
+            <input type="hidden" name="_url" value="https://ztools.site/bmi/">
+            <input type="hidden" name="_locale" value="vi">
+
 
             <button type="submit" class="btn-premium-submit">
               <span>

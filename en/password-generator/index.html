@@ -116,7 +116,7 @@
                   defer></script>
 
                 <!-- Stylesheets -->
-                <link rel="stylesheet" href="../../assets/css/global.css?h=f3232b07&amp;v=1.5.2">
+                <link rel="stylesheet" href="../../assets/css/global.css?h=fddc26af&amp;v=1.5.2">
                 
                   <link rel="stylesheet" href="../../assets/features/password-generator/style.css?h=5c2df364&amp;v=1.5.2">
                   
@@ -1267,7 +1267,14 @@ All passwords are generated locally in your browser. Nothing is ever sent to our
             </div>
           </div>
 
-          <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST">
+          <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST"
+            onsubmit="this.querySelector('input[name=_timestamp]').value = new Date().toISOString()">
+            <div class="input-with-icon">
+              <i data-lucide="user"></i>
+              <input type="text" name="name" placeholder="Your Name (optional)"
+                class="premium-input" required>
+            </div>
+
             <div class="input-with-icon">
               <i data-lucide="mail"></i>
               <input type="email" name="email" placeholder="Contact email (optional)"
@@ -1280,7 +1287,13 @@ All passwords are generated locally in your browser. Nothing is ever sent to our
                 class="premium-textarea" rows="2"></textarea>
             </div>
 
-            <input type="hidden" name="topic" value="general">
+            <input type="hidden" name="topic" value="general" class="feedback-select">
+
+            <!-- Hidden Meta Fields -->
+            <input type="hidden" name="_timestamp" value="">
+            <input type="hidden" name="_url" value="https://ztools.site/password-generator/">
+            <input type="hidden" name="_locale" value="en">
+
 
             <button type="submit" class="btn-premium-submit">
               <span>
