@@ -116,7 +116,7 @@
                   defer></script>
 
                 <!-- Stylesheets -->
-                <link rel="stylesheet" href="../assets/css/global.css?h=bf0020c0&amp;v=1.5.2">
+                <link rel="stylesheet" href="../assets/css/global.css?h=f3232b07&amp;v=1.5.2">
                 
                   <link rel="stylesheet" href="../assets/features/inflation-calculator/style.css?h=07949fbe&amp;v=1.5.2">
                   
@@ -1086,143 +1086,147 @@
 
           
             <footer class="site-footer">
-  <div class="container footer-inner">
+  <div class="container">
     <div class="footer-grid">
       <!-- Col 1: Brand & About -->
-      <div class="footer-brand-col">
-        <h3>
-          <img src="../assets/images/logo.svg" alt="ZTools" width="24" height="24"
-            style="vertical-align: middle; margin-right: 8px;">
-          ZTools.site
-        </h3>
-        <p>
+      <div class="footer-col brand-col">
+        <a href="../" class="footer-logo">
+          <img src="../assets/images/logo.svg" alt="ZTools" width="32" height="32">
+          <span>ZTools</span>
+        </a>
+        <p class="footer-desc">
           Bộ công cụ tiện ích miễn phí, đơn giản và bảo mật.
         </p>
         <div class="footer-social-links">
-          <a href="https://github.com/AZTomiq/ztools.site-public" target="_blank" aria-label="Github"><i
-              data-lucide="github"></i></a>
-          <a href="mailto:contact@ztools.site" aria-label="Email"><i data-lucide="mail"></i></a>
+          <a href="https://github.com/AZTomiq/ztools.site-public" target="_blank" aria-label="Github"
+            class="social-btn">
+            <i data-lucide="github"></i>
+          </a>
+          <a href="mailto:contact@ztools.site" aria-label="Email" class="social-btn">
+            <i data-lucide="mail"></i>
+          </a>
         </div>
       </div>
 
-      <!-- Col 2: Useful Links -->
-      <div class="footer-links-col">
-        <h4>
-          Liên kết
-        </h4>
-        <ul>
-          <li><a href="https://ztools.site/about/">
+      <!-- Col 2: Product -->
+      <div class="footer-col links-col">
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://ztools.site/about/">
               Giới thiệu
-            </a></li>
-          <li><a href="https://ztools.site/privacy/">
-              Chính sách
-            </a></li>
-          <li><a href="https://ztools.site/terms/">
-              Điều khoản
-            </a></li>
-          <li><a href="https://ztools.site/changelog/">
+            </a>
+          </li>
+          <li>
+            <a href="https://ztools.site/changelog/">
               Nhật ký cập nhật
-            </a></li>
-          <li><a href="https://github.com/AZTomiq/ztools.site-public" target="_blank" rel="noopener noreferrer"
-              aria-label="View Source on GitHub">
-              GitHub Source
-            </a></li>
-          <li><a href="#feedback-form"
-              onclick="const sel = document.querySelector('.feedback-select'); if(sel) { sel.value='new_tool'; sel.dispatchEvent(new Event('change')); } document.querySelector('.feedback-textarea')?.focus();">
-              Yêu cầu tool mới
-            </a></li>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AZTomiq/ztools.site-public" target="_blank">
+              Source Code
+            </a>
+          </li>
+          <li>
+            <a href="https://ztools.site/roadmap">
+              Roadmap
+            </a>
+          </li>
         </ul>
       </div>
+
+      <!-- Col 3: Legal -->
+      <div class="footer-col links-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://ztools.site/privacy/">
+              Chính sách
+            </a>
+          </li>
+          <li>
+            <a href="https://ztools.site/terms/">
+              Điều khoản
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Feedback (Premium) -->
       <div class="footer-col feedback-col">
-        <div class="feedback-card">
-          <div class="feedback-header">
-            <div class="feedback-icon-title">
-              <i data-lucide="message-square-heart" class="warm-icon"></i>
+        <div class="feedback-widget-premium">
+          <div class="widget-header">
+            <div class="icon-badge">
+              <i data-lucide="message-square-heart"></i>
+            </div>
+            <div>
               <h4>
                 Nhắn nhủ ZTools
               </h4>
+              <p class="widget-desc">
+                Chúng tôi luôn ở đây để lắng nghe! Bạn có điều gì muốn nhắn nhủ đến đội ngũ ZTools.site?
+              </p>
             </div>
-            <p class="feedback-desc">
-              Chúng tôi luôn ở đây để lắng nghe! Bạn có điều gì muốn nhắn nhủ đến đội ngũ ZTools.site?
-            </p>
           </div>
 
-          <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST" class="feedback-form">
-            <div class="feedback-row">
-              <div class="feedback-input-group">
-                <input type="text" name="name" placeholder="Tên của bạn (không bắt buộc)" class="feedback-input">
-                <i data-lucide="user" class="input-icon"></i>
-              </div>
-              <div class="feedback-input-group">
-                <input type="email" name="email" placeholder="Email liên hệ (không bắt buộc)" class="feedback-input">
-                <i data-lucide="mail" class="input-icon"></i>
-              </div>
+          <form id="feedback-form" action="https://formspree.io/f/xlgrqrla" method="POST">
+            <div class="input-with-icon">
+              <i data-lucide="mail"></i>
+              <input type="email" name="email" placeholder="Email liên hệ (không bắt buộc)"
+                class="premium-input">
             </div>
 
-            <div class="feedback-input-group select-wrap">
-              <select name="topic" class="feedback-input feedback-select">
-                <option value="general">
-                  Góp ý chung
-                </option>
-                <option value="new_tool">
-                  Yêu cầu tool mới
-                </option>
-                <option value="bug">
-                  Báo lỗi hệ thống
-                </option>
-                <option value="ui">
-                  Góp ý giao diện
-                </option>
-              </select>
-              <i data-lucide="layers" class="input-icon"></i>
-            </div>
-
-            <div class="feedback-input-group">
+            <div class="input-with-icon">
+              <i data-lucide="pen-tool" class="textarea-icon"></i>
               <textarea name="message" placeholder="Nhập nội dung chi tiết..." required
-                class="feedback-input feedback-textarea"></textarea>
-              <i data-lucide="pen-tool" class="input-icon textarea-icon"></i>
+                class="premium-textarea" rows="2"></textarea>
             </div>
-            <button type="submit" class="btn-primary feedback-submit-premium">
+
+            <input type="hidden" name="topic" value="general">
+
+            <button type="submit" class="btn-premium-submit">
               <span>
                 Gửi lời nhắn đến đội ngũ
               </span>
-              <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+              <i data-lucide="sparkles"></i>
             </button>
             <div id="feedback-status" class="feedback-status"></div>
           </form>
 
-          <p class="feedback-slogan">
-            <i data-lucide="quote" style="width: 12px; height: 12px; opacity: 0.5;"></i>
+          <div class="widget-footer">
+            <i data-lucide="quote" class="quote-icon"></i>
             <span>
               Những góp ý của bạn là động lực của chúng tôi! Xin chân thành cảm ơn!
             </span>
-          </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom container">
-      <div class="footer-bottom-unified">
-        <div class="footer-copyright-wrap">
-          <div class="footer-copyright-text">
-            &copy; 2026 AZtomiq. All rights reserved. Registered in Vietnam.
-          </div>
-          <div class="footer-dmca-badge">
-            <a href="//www.dmca.com/Protection/Status.aspx?ID=375b6320-f1c3-4d2d-8b01-1b9195b6c694"
-              title="DMCA.com Protection Status" class="dmca-badge">
-              <img
-                src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=375b6320-f1c3-4d2d-8b01-1b9195b6c694"
-                alt="DMCA.com Protection Status" />
-            </a>
-            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
-          </div>
-        </div>
-        <div class="footer-powered-by">
-          Powered by <a href="https://github.com/AZTomiq/aztomiq" target="_blank" rel="noopener noreferrer">AZtomiq
-            Core</a>
-          v1.5.2
+
+    <div class="footer-separator"></div>
+
+    <div class="footer-bottom">
+      <div class="copyright-text">
+        &copy; 2026 AZtomiq. All rights reserved.
+      </div>
+
+      <div class="footer-badges">
+        <div class="dmca-badge-wrap">
+          <a href="//www.dmca.com/Protection/Status.aspx?ID=375b6320-f1c3-4d2d-8b01-1b9195b6c694"
+            title="DMCA.com Protection Status" class="dmca-badge">
+            <img
+              src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=375b6320-f1c3-4d2d-8b01-1b9195b6c694"
+              alt="DMCA.com Protection Status" />
+          </a>
+          <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
         </div>
       </div>
+
+      <div class="powered-by">
+        Powered by <a href="https://github.com/AZTomiq/aztomiq" target="_blank">AZtomiq Core</a> v1.5.2
+      </div>
     </div>
+  </div>
 </footer>
 
 <!-- Analytics & Tracking -->
