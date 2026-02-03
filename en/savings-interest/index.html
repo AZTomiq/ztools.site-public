@@ -989,15 +989,15 @@
               <!-- title: Savings Interest Calculator - ZTools -->
 
 <link rel="stylesheet" href="../../assets/features/savings-interest/style.css?h=ffe04cc3&amp;v=1.5.2">
-<!-- Reusing compound-interest styles as they are identical layout-wise -->
 
 <section class="tool-container">
   <div class="page-header">
     <h1>💰 Savings Interest Calculator
-    
-      
-        <button class="version-badge" id="open-changelog" aria-label="View Changelog">v1.0.0</button>
-      </h1>
+        
+          <button class="version-badge" id="open-changelog" aria-label="View Changelog">v1.0.0
+              </button>
+          
+    </h1>
     <p>
       Calculate bank savings interest quickly. Supports term deposits with end-of-term or monthly interest payout.
     </p>
@@ -1005,7 +1005,7 @@
 
   <div class="calculator-card">
     <form id="savings-form" class="finance-form">
-      <!-- Deposit Amount -->
+      <!-- Amount -->
       <div class="form-group">
         <label for="amount">
           Deposit Amount
@@ -1017,40 +1017,38 @@
       </div>
 
       <div class="form-row">
-        <!-- Interest Rate -->
+        <!-- Annual Rate -->
         <div class="form-group">
           <label for="rate">
-            Interest Rate (%/year)
+            savings.annual_rate
           </label>
           <div class="input-group">
-            <input type="number" id="rate" placeholder="5.5" step="0.01" min="0">
+            <input type="number" id="rate" placeholder="6.5" step="0.1" min="0">
             <span class="input-suffix">%</span>
           </div>
         </div>
 
-        <!-- Term -->
+        <!-- Term Select -->
         <div class="form-group">
           <label for="term">
             Term
           </label>
           <select id="term">
-            <option value="1">
-              1 Month
+            <option value="1">1 savings.month
             </option>
-            <option value="3">
-              3 Months
+            <option value="3">3 Months
             </option>
-            <option value="6" selected>
-              6 Months
+            <option value="6">6 Months
             </option>
-            <option value="12">
-              12 Months
+            <option value="9">9 Months
             </option>
-            <option value="24">
-              24 Months
+            <option value="12" selected>12 Months
             </option>
-            <option value="36">
-              36 Months
+            <option value="18">18 Months
+            </option>
+            <option value="24">24 Months
+            </option>
+            <option value="36">36 Months
             </option>
             <option value="custom">
               Or custom months
@@ -1062,10 +1060,10 @@
       <!-- Custom Term Input (Hidden by default) -->
       <div class="form-group" id="custom-term-group" style="display: none;">
         <label for="custom-months">
-          Or custom months
+          savings.custom_months_label
         </label>
         <div class="input-group">
-          <input type="number" id="custom-months" placeholder="Enter months" min="1">
+          <input type="number" id="custom-months" placeholder="5" min="1">
           <span class="input-suffix">
             Months
           </span>
@@ -1088,10 +1086,10 @@
         Calculation Result
       </h3>
 
-      <div class="result-grid" style="grid-template-columns: 1fr 1fr;"> <!-- 2 columns only -->
+      <div class="result-grid">
         <div class="result-card primary">
           <span>
-            Total Interest
+            savings.earned_interest
           </span>
           <strong id="res-interest">0 đ</strong>
         </div>
@@ -1114,7 +1112,8 @@
   </div>
 </section>
 
-<script src="../../assets/features/savings-interest/script.js?h=c1a1a68f&amp;v=1.5.2"></script>
+<script src="../../assets/features/savings-interest/logic.js?h=324e416f&amp;v=1.5.2"></script>
+<script src="../../assets/features/savings-interest/script.js?h=a7eebada&amp;v=1.5.2"></script>
 
                 
           </main>
