@@ -193,8 +193,19 @@ const IS_DEV = false;
           console.log('[SW] Installing...');
           e.waitUntil(
           caches.open(CACHE_NAME).then((cache) => {
-          console.log('[SW] Caching App Shell');
-          return cache.addAll(STATIC_ASSETS);
+          console.log('[SW] Caching App Shell (Resilient Mode)');
+          const cachePromises = STATIC_ASSETS.map(url => {
+          return fetch(url).then(response => {
+          if (!response.ok) {
+          console.warn(`[SW] Skip caching missing file: ${url}`);
+          return;
+          }
+          return cache.put(url, response);
+          }).catch(err => {
+          console.warn(`[SW] Cache fail for ${url}:`, err);
+          });
+          });
+          return Promise.all(cachePromises);
           })
           );
           self.skipWaiting();
