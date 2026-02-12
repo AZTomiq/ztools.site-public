@@ -247,6 +247,14 @@ const IS_DEV = false;
           self.addEventListener('fetch', (e) => {
           if (IS_DEV) return; // Skip cache in dev mode
 
+          const url = new URL(e.request.url);
+
+          // 1. Bypass Service Worker for external tracking/insights (like Vercel) to prevent network failure loops
+          if (url.hostname.includes('vercel.com') || url.hostname.includes('_vercel') ||
+          url.pathname.includes('/insights/')) {
+          return;
+          }
+
           if (e.request.method !== 'GET' || !e.request.url.startsWith(self.location.origin)) {
           return;
           }
@@ -254,15 +262,20 @@ const IS_DEV = false;
           e.respondWith(
           caches.open(CACHE_NAME).then(async (cache) => {
           const cachedResponse = await cache.match(e.request);
-          const fetchPromise = fetch(e.request).then((networkResponse) => {
-          if (networkResponse.ok) {
+          if (cachedResponse) return cachedResponse;
+
+          try {
+          const networkResponse = await fetch(e.request);
+          if (networkResponse && networkResponse.ok) {
           cache.put(e.request, networkResponse.clone());
           }
           return networkResponse;
-          }).catch((err) => {
+          } catch (err) {
           console.warn('[SW] Network fail:', err);
-          });
-          return cachedResponse || fetchPromise;
+          // If network fails and no cache, we should NOT return undefined
+          // Re-throw or return a specific fallback to avoid "Failed to convert value to 'Response'"
+          throw err;
+          }
           })
           );
           });
