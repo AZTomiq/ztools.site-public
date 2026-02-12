@@ -41,7 +41,6 @@ const IS_DEV = false;
             './assets/features/dap-heo/script.js',
             './assets/features/dap-heo/style.css',
             './vi/dap-heo/',
-            './en/dap-heo/',
             './assets/features/date-time-master/script.js',
             './assets/features/date-time-master/style.css',
             './vi/date-time-master/',
@@ -61,7 +60,6 @@ const IS_DEV = false;
             './assets/features/folk-games/racing.js',
             './assets/features/folk-games/script.js',
             './vi/folk-games/',
-            './en/folk-games/',
             './assets/features/freelancer-tax/logic.js',
             './assets/features/freelancer-tax/logic.test.js',
             './assets/features/freelancer-tax/script.js',
@@ -98,7 +96,6 @@ const IS_DEV = false;
             './en/jwt-toolkit/',
             './assets/features/li-xi/script.js',
             './vi/li-xi/',
-            './en/li-xi/',
             './assets/features/loan-calculator/logic.js',
             './assets/features/loan-calculator/logic.test.js',
             './assets/features/loan-calculator/script.js',
@@ -111,11 +108,9 @@ const IS_DEV = false;
             './en/lorem-ipsum/',
             './assets/features/lucky-wheel/script.js',
             './vi/lucky-wheel/',
-            './en/lucky-wheel/',
             './assets/features/lunar-calendar/script.js',
             './assets/features/lunar-calendar/style.css',
             './vi/lunar-calendar/',
-            './en/lunar-calendar/',
             './assets/features/ot-calculator/logic.js',
             './assets/features/ot-calculator/logic.test.js',
             './assets/features/ot-calculator/script.js',
@@ -138,7 +133,6 @@ const IS_DEV = false;
             './en/qr-generator/',
             './assets/features/racing-horse/script.js',
             './vi/racing-horse/',
-            './en/racing-horse/',
             './assets/features/random-toolkit/script.js',
             './assets/features/random-toolkit/style.css',
             './vi/random-toolkit/',
@@ -164,7 +158,6 @@ const IS_DEV = false;
             './assets/features/tax/script.js',
             './assets/features/tax/style.css',
             './vi/tax/',
-            './en/tax/',
             './assets/features/text-diff/script.js',
             './assets/features/text-diff/style.css',
             './vi/text-diff/',
@@ -266,7 +259,8 @@ const IS_DEV = false;
 
           try {
           const networkResponse = await fetch(e.request);
-          if (networkResponse && networkResponse.ok) {
+          // Prevent caching partial content (206) which causes errors
+          if (networkResponse && networkResponse.ok && networkResponse.status !== 206) {
           cache.put(e.request, networkResponse.clone());
           } else if (!networkResponse) {
           // Fallback if fetch returns nothing
