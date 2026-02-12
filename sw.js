@@ -268,13 +268,15 @@ const IS_DEV = false;
           const networkResponse = await fetch(e.request);
           if (networkResponse && networkResponse.ok) {
           cache.put(e.request, networkResponse.clone());
+          } else if (!networkResponse) {
+          // Fallback if fetch returns nothing
+          return new Response('Network error', { status: 408, headers: { 'Content-Type': 'text/plain' } });
           }
           return networkResponse;
           } catch (err) {
           console.warn('[SW] Network fail:', err);
-          // If network fails and no cache, we should NOT return undefined
-          // Re-throw or return a specific fallback to avoid "Failed to convert value to 'Response'"
-          throw err;
+          // Return a safe fallback response instead of undefined/null
+          return new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
           }
           })
           );
