@@ -11,7 +11,7 @@
     const host = window.location.hostname;
     const path = window.location.pathname;
     const mainDomain = "iztools.xyz";
-    const subdomains = ;
+    const subdomains = [{"domain":"blog.ph4n4n.xyz","path":"/blog/"},{"domain":"roadmap.ph4n4n.xyz","path":"/roadmap/"},{"domain":"json.iztools.xyz","path":"/json-toolkit/"},{"domain":"tncn.iztools.xyz","path":"/tax/"},{"domain":"laikep.iztools.xyz","path":"/compound-interest/"},{"domain":"playground.iztools.xyz","path":"/web-playground/"},{"domain":"amlich.iztools.xyz","path":"/lunar-calendar/"},{"domain":"lunar.iztools.xyz","path":"/lunar-calendar/"}];
 
     // 0. Bypasses for development
     if (host === 'localhost' || host === '127.0.0.1' || host.includes('.local')) return;
@@ -118,7 +118,7 @@
                 <!-- Stylesheets -->
                 <link rel="stylesheet" href="../../assets/css/global.css?h=43d2e2d3&amp;v=1.5.2">
                 
-                  <link rel="stylesheet" href="../../assets/features/dap-heo/style.css?h=1e8cbff4&amp;v=1.5.2">
+                  <link rel="stylesheet" href="../../assets/features/dap-heo/style.css?h=08e11f11&amp;v=1.5.2">
                   
                     <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg">
                     <link rel="manifest" href="../../manifest.json">
@@ -221,7 +221,8 @@
   <button class="fullscreen-exit-btn" id="btn-exit-fullscreen">✕</button>
   <div class="heo-game-container">
     <div style="text-align: center; margin-bottom: 2rem;">
-      <h1 style="cursor: default; font-size: 4rem; margin-bottom: 0.25rem;" id="secret-trigger-emoji">🐷</h1>
+      <h1 style="cursor: pointer; font-size: 4rem; margin-bottom: 0.25rem;" id="secret-trigger-emoji"
+        title="Admin? (Double Click)">🐷</h1>
       <h2 class="text-3xl font-bold" style="color: var(--folk-red);">ĐẬP HEO LÌ XÌ</h2>
       <p style="color: var(--text-muted); font-style: italic;">"Bựa Edition" - Thử vận may, nhận lì xì ngay!</p>
 
@@ -318,18 +319,26 @@
 
             <div class="tier-control gold">
               <div class="tier-header">
-                <span>🥇 VÀNG (200k)</span>
+                <span>🥇 </span>
                 <span id="val-gold" class="val-badge">3</span>
               </div>
               <input type="range" id="range-gold" min="0" max="20" value="3" class="slider">
             </div>
 
-            <div class="tier-control common">
+            <div class="tier-control silver">
               <div class="tier-header">
-                <span>🐷 THƯỜNG</span>
-                <span id="val-common" class="val-badge">29</span>
+                <span>🥈 BẠC (100k)</span>
+                <span id="val-silver" class="val-badge">5</span>
               </div>
-              <input type="range" id="cfg-common-count" min="0" max="100" value="29" class="slider">
+              <input type="range" id="range-silver" min="0" max="30" value="5" class="slider">
+            </div>
+
+            <div class="tier-control bronze">
+              <div class="tier-header">
+                <span>🥉 ĐỒNG (50k)</span>
+                <span id="val-bronze" class="val-badge">29</span>
+              </div>
+              <input type="range" id="cfg-bronze-count" min="0" max="100" value="29" class="slider">
             </div>
 
             <div class="tier-control empty">
@@ -454,6 +463,20 @@ Mon Húi</textarea>
 
     <!-- Screen 2: Game Grid -->
     <div id="screen-game" class="heo-screen hidden">
+      <!-- Floating Admin Trigger (always visible during game) -->
+      <div id="floating-admin-pig"
+        style="position: sticky; top: 0; z-index: 100; text-align: center; padding: 0.25rem 0; background: rgba(255,248,230,0.95); backdrop-filter: blur(4px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <span id="game-pig-trigger" style="cursor: pointer; font-size: 2rem; user-select: none;"
+          title="Admin (Double Click)">🐷</span>
+        <span id="game-admin-tools-inline" class="hidden" style="margin-left: 0.5rem;">
+          <button id="btn-reveal-positions-2" class="btn-folk"
+            style="background: #6c5ce7; font-size: 0.7rem; padding: 0.3rem 0.6rem;">👁️ Tiết lộ</button>
+          <button id="btn-reshuffle-2" class="btn-folk"
+            style="background: #e17055; font-size: 0.7rem; padding: 0.3rem 0.6rem;">🔀 Đảo</button>
+          <button id="btn-reset-grid-2" class="btn-folk"
+            style="background: #d63031; font-size: 0.7rem; padding: 0.3rem 0.6rem;">🔄 Reset</button>
+        </span>
+      </div>
       <div class="game-bar">
         <span class="game-bar-item">
           LƯỢT CÒN LẠI: <span id="remaining-turns">0</span>
@@ -552,8 +575,15 @@ Mon Húi</textarea>
 </section>
 
 <!-- Include Core Assets -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  window.DAP_HEO_ENV = {
+    SUPABASE_URL: "https://gqwtizaiupriyhdnhvif.supabase.co",
+    SUPABASE_KEY: "sb_publishable_M7EbWXLSp6UpND9SDPVCAw_fGH08yHe"
+  };
+</script>
 <script src="../../assets/features/folk-games/core.js?h=4867d9eb&amp;v=1.5.2"></script>
-<script src="../../assets/features/dap-heo/script.js?h=ce8f0cc6&amp;v=1.5.2"></script>
+<script src="../../assets/features/dap-heo/script.js?h=54ef94fc&amp;v=1.5.2"></script>
 
                 
           </main>

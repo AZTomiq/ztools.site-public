@@ -11,7 +11,7 @@
     const host = window.location.hostname;
     const path = window.location.pathname;
     const mainDomain = "iztools.xyz";
-    const subdomains = ;
+    const subdomains = [{"domain":"blog.ph4n4n.xyz","path":"/blog/"},{"domain":"roadmap.ph4n4n.xyz","path":"/roadmap/"},{"domain":"json.iztools.xyz","path":"/json-toolkit/"},{"domain":"tncn.iztools.xyz","path":"/tax/"},{"domain":"laikep.iztools.xyz","path":"/compound-interest/"},{"domain":"playground.iztools.xyz","path":"/web-playground/"},{"domain":"amlich.iztools.xyz","path":"/lunar-calendar/"},{"domain":"lunar.iztools.xyz","path":"/lunar-calendar/"}];
 
     // 0. Bypasses for development
     if (host === 'localhost' || host === '127.0.0.1' || host.includes('.local')) return;
@@ -928,55 +928,6 @@
       </div>
     </section>
 
-    <!-- RESTORED: Full Tết Countdown Section -->
-    <section class="section-tet-countdown" id="tet-countdown">
-      <!-- Particle Layer -->
-      <canvas id="tet-blossom-canvas"></canvas>
-      <div class="countdown-overlay"></div>
-      <div class="countdown-wrapper vpc-glass">
-        <!-- Floating Decor -->
-        <div class="floating-lantern l1">🏮</div>
-        <div class="floating-lantern l2">🏮</div>
-        <!-- Top Right Fullscreen Toggle -->
-        <button id="fullscreen-countdown" class="fs-trigger-icon" title="Toàn màn hình">
-          <i data-lucide="maximize"></i>
-        </button>
-        <h2 class="countdown-title-premium">
-          <span class="gradient-text">PHÓNG NHƯ BAY TỚI TẾT BÍNH NGỌ 2026</span>
-        </h2>
-        <div id="tet-timer" class="tet-timer-modern">
-          <div class="timer-unit-modern">
-            <div class="num-card"><span id="days">00</span></div>
-            <small>Ngày</small>
-          </div>
-          <div class="timer-sep-modern">:</div>
-          <div class="timer-unit-modern">
-            <div class="num-card"><span id="hours">00</span></div>
-            <small>Giờ</small>
-          </div>
-          <div class="timer-sep-modern">:</div>
-          <div class="timer-unit-modern">
-            <div class="num-card"><span id="minutes">00</span></div>
-            <small>Phút</small>
-          </div>
-          <div class="timer-sep-modern">:</div>
-          <div class="timer-unit-modern">
-            <div class="num-card"><span id="seconds">00</span></div>
-            <small>Giây</small>
-          </div>
-        </div>
-        <div class="premium-slogan">
-          <p class="slogan-sub">🐎 Mã Đáo Thành Công</p>
-          <p class="slogan-main">🧧 Bính Ngọ chưa kịp chạy đã thành công!</p>
-          <button id="lucky-lixi" class="btn-lixi" title="Nhận lộc đầu xuân">
-            <span class="lixi-icon">🧧</span>
-            <span class="lixi-text">Nhận Lộc</span>
-          </button>
-        </div>
-        <!-- Background Image with Parallax -->
-        <div class="ma-dao-parallax-bg"></div>
-      </div>
-    </section>
 
     <!-- RESTORED: Featured Folk Games -->
     <section class="section-folk-showcase" id="folk-games-featured">
@@ -1781,7 +1732,7 @@
 
   <!-- New Assets -->
   <link rel="stylesheet" href="../assets/css/home-new.css?h=6ea96feb&amp;v=1.5.2">
-  <script src="../assets/js/home-new.js?h=b7408d61&amp;v=1.5.2"></script>
+  <script src="../assets/js/home-new.js?h=49407b2b&amp;v=1.5.2"></script>
 
                 
           </main>
