@@ -118,7 +118,7 @@
                 <!-- Stylesheets -->
                 <link rel="stylesheet" href="../../assets/css/global.css?h=43d2e2d3&amp;v=1.5.2">
                 
-                  <link rel="stylesheet" href="../../assets/features/dap-heo/style.css?h=d41d8cd9&amp;v=1.5.2">
+                  <link rel="stylesheet" href="../../assets/features/dap-heo/style.css?h=1e8cbff4&amp;v=1.5.2">
                   
                     <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg">
                     <link rel="manifest" href="../../manifest.json">
@@ -208,104 +208,6 @@
             class="full-width-main"
             >
             
-  <nav class="breadcrumbs-container" aria-label="Breadcrumb">
-    <ol class="breadcrumbs-list">
-      
-        <li class="breadcrumb-item">
-          <a href="https://iztools.xyz/en/" class="breadcrumb-link"
-            title="Home">
-            <i data-lucide="home"></i>
-          </a>
-        </li>
-
-        
-          <li class="breadcrumb-separator">
-            <i data-lucide="chevron-right"></i>
-          </li>
-          <li class="breadcrumb-item">
-            <a href="https://iztools.xyz/en/categories/#cat-daily"
-              class="breadcrumb-link">
-              Daily Utilities
-            </a>
-          </li>
-          
-
-            <li class="breadcrumb-separator">
-              <i data-lucide="chevron-right"></i>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              <span class="breadcrumb-current">
-                Piggy Bank Smash
-              </span>
-            </li>
-    </ol>
-  </nav>
-
-  <style>
-    .breadcrumbs-container {
-      padding: 1rem 0;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .breadcrumbs-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .breadcrumb-item {
-      display: flex;
-      align-items: center;
-    }
-
-    .breadcrumb-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .breadcrumb-link i {
-      width: 14px;
-      height: 14px;
-    }
-
-    .breadcrumb-link:hover {
-      color: var(--primary-color);
-    }
-
-    .breadcrumb-separator {
-      color: var(--border-color);
-      display: flex;
-      align-items: center;
-    }
-
-    .breadcrumb-separator i {
-      width: 14px;
-      height: 14px;
-    }
-
-    .breadcrumb-current {
-      font-weight: 500;
-      color: var(--text-color);
-    }
-
-    @media (max-width: 600px) {
-      .breadcrumbs-container {
-        padding: 0.75rem 0;
-        font-size: 0.75rem;
-      }
-    }
-  </style>
-  
               <!-- title: Piggy Bank Smash - iZTools -->
 <meta name="description"
   content="Trò chơi Đập Heo Lì Xì Tết - Nhận lì xì may mắn đầu năm với những thử thách bựa và câu chúc hài hước.">
@@ -348,87 +250,131 @@
       </div>
     </div>
 
-    <!-- Admin Modal -->
+    <!-- Admin Modal (Dashboard 2.0) -->
     <div id="admin-modal" class="heo-modal hidden">
-      <div class="heo-modal-content admin-panel">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-          <h3 style="margin: 0; font-size: 1.2rem; font-weight: bold;">⚙️ QUẢN LÝ QUOTA & TỈ LỆ</h3>
-          <button id="btn-close-admin"
-            style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">✕</button>
+      <div class="heo-modal-content admin-dashboard">
+        <!-- Header -->
+        <div class="admin-header">
+          <div class="admin-title">
+            <h3>⚙️ CẤU HÌNH GAME</h3>
+            <span class="admin-subtitle">Quản lý ngân sách & Tỉ lệ</span>
+          </div>
+          <button id="btn-close-admin" class="btn-icon-close">✕</button>
         </div>
 
-        <div style="margin-bottom: 1rem;">
-          <h4 style="font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 4px; margin-bottom: 0.75rem;">
-            💰 NGÂN SÁCH</h4>
-          <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <input type="number" id="cfg-budget" class="admin-input" value="2000000" min="100000" step="100000"
-              style="flex: 1; font-size: 1.1rem; font-weight: bold;">
-            <span style="font-size: 0.8rem; color: #888;">đ</span>
+        <!-- Budget Bar -->
+        <div class="budget-status-bar">
+          <div class="budget-info">
+            <span>Ngân sách sử dụng:</span>
+            <span id="admin-budget-display" class="highlight">0đ / 0đ</span>
           </div>
-          <button id="btn-auto-distribute" class="btn-folk"
-            style="width: 100%; margin-top: 0.5rem; background: #6c5ce7; font-size: 0.85rem; padding: 0.5rem;">
-            🎲 TỰ PHÂN BỔ
-          </button>
+          <div class="progress-track">
+            <div id="admin-budget-progress" class="progress-fill" style="width: 0%"></div>
+          </div>
         </div>
 
-        <div style="margin-bottom: 1rem;">
-          <h4 style="font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 4px; margin-bottom: 0.75rem;">
-            🎨 CHỦ ĐỀ (THEME)</h4>
-          <select id="cfg-theme" class="admin-input" style="width: 100%; font-weight: bold;">
-            <option value="heo">🐷 Đập Heo (Default)</option>
-            <option value="lixi">🧧 Khui Lì Xì</option>
-            <option value="nieu">🏺 Đập Niêu</option>
-          </select>
+        <div class="admin-grid">
+          <!-- Left Col: Config -->
+          <div class="admin-card col-config">
+            <h4>💰 THIẾT LẬP CHUNG</h4>
+            <div class="form-group">
+              <label>TỔNG NGÂN SÁCH</label>
+              <div class="input-wrapper">
+                <input type="number" id="cfg-budget" class="modern-input" value="2000000" step="100000">
+                <span class="unit">VNĐ</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>CHỦ ĐỀ (THEME)</label>
+              <select id="cfg-theme" class="modern-select">
+                <option value="heo">🐷 Đập Heo (Default)</option>
+                <option value="lixi">🧧 Khui Lì Xì</option>
+                <option value="nieu">🏺 Đập Niêu</option>
+              </select>
+            </div>
+
+            <div class="presets-area">
+              <label>CHẾ ĐỘ NHANH</label>
+              <div class="preset-buttons">
+                <button class="btn-preset" data-preset="low">Nghèo</button>
+                <button class="btn-preset" data-preset="balanced">Cân bằng</button>
+                <button class="btn-preset" data-preset="rich">Đại gia</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle Col: Distribution -->
+          <div class="admin-card col-dist">
+            <h4>📊 PHÂN BỔ GIẢI THƯỞNG</h4>
+
+            <div class="tier-control diamond">
+              <div class="tier-header">
+                <span>💎 KIM CƯƠNG (500k)</span>
+                <span id="val-diamond" class="val-badge">1</span>
+              </div>
+              <input type="range" id="range-diamond" min="0" max="10" value="1" class="slider">
+            </div>
+
+            <div class="tier-control gold">
+              <div class="tier-header">
+                <span>🥇 VÀNG (200k)</span>
+                <span id="val-gold" class="val-badge">3</span>
+              </div>
+              <input type="range" id="range-gold" min="0" max="20" value="3" class="slider">
+            </div>
+
+            <div class="tier-control common">
+              <div class="tier-header">
+                <span>🐷 THƯỜNG</span>
+                <span id="val-common" class="val-badge">29</span>
+              </div>
+              <input type="range" id="cfg-common-count" min="0" max="100" value="29" class="slider">
+            </div>
+
+            <div class="tier-control empty">
+              <div class="tier-header">
+                <span>💨 HEO RỖNG (Auto)</span>
+                <span id="val-empty" class="val-badge auto">17</span>
+              </div>
+              <div class="auto-note">Tự động tính (còn lại)</div>
+              <!-- Hidden input to store value if needed, or just rely on calc -->
+              <input type="hidden" id="cfg-empty-count" value="17">
+            </div>
+          </div>
+
+          <!-- Right Col: Special & Stats -->
+          <div class="admin-card col-extra">
+            <h4>⚡ TÍNH NĂNG ĐẶC BIỆT</h4>
+
+            <div class="tier-split">
+              <div class="tier-control">
+                <label>⚡ X2</label>
+                <input type="number" id="cfg-x2-count" class="modern-input sm" value="2">
+              </div>
+              <div class="tier-control">
+                <label>🏆 TOP2</label>
+                <input type="number" id="cfg-top2-count" class="modern-input sm" value="1">
+              </div>
+            </div>
+
+            <div class="stats-box">
+              <div class="stat-item">
+                <span class="stat-label">Tổng Slots</span>
+                <span class="stat-val" id="stat-total-slots">100</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Tỉ lệ trúng</span>
+                <span class="stat-val" id="stat-win-rate">50%</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <section style="padding-top: 0.75rem; border-top: 2px dashed #eee;">
-          <h4 style="font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 4px; margin-bottom: 0.75rem;">
-            📊 PHÂN BỔ HEO (tự tính hoặc chỉnh tay)</h4>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;">
-            <div>
-              <label style="font-size: 0.7rem;">💎 Kim Cương (500k)</label>
-              <input type="number" id="cfg-diamond-count" class="admin-input" value="1" min="0" max="10">
-            </div>
-            <div>
-              <label style="font-size: 0.7rem;">🥇 Vàng (200k)</label>
-              <input type="number" id="cfg-gold-count" class="admin-input" value="3" min="0" max="20">
-            </div>
-            <div>
-              <label style="font-size: 0.7rem;">🐷 Thường (10-50k)</label>
-              <input type="number" id="cfg-common-count" class="admin-input" value="29" min="0" max="90">
-            </div>
-          </div>
-          <div id="admin-budget-sum"
-            style="font-size: 1rem; font-weight: 700; color: var(--folk-red); text-align: center; margin-top: 0.5rem;">
-            Tổng: 0đ
-          </div>
-        </section>
-
-        <section style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 2px dashed #eee;">
-          <h4 style="font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 4px; margin-bottom: 0.75rem;">
-            🎯 CẤU HÌNH ĐẶC BIỆT</h4>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;">
-            <div>
-              <label style="font-size: 0.7rem;">💨 HEO TRỐNG</label>
-              <input type="number" id="cfg-empty-count" class="admin-input" value="17" min="0" max="80">
-            </div>
-            <div>
-              <label style="font-size: 0.7rem;">⭐ HEO X2</label>
-              <input type="number" id="cfg-x2-count" class="admin-input" value="2" min="0" max="5">
-            </div>
-            <div>
-              <label style="font-size: 0.7rem;">🏆 HEO TOP2</label>
-              <input type="number" id="cfg-top2-count" class="admin-input" value="1" min="0" max="5">
-            </div>
-          </div>
-          <div id="admin-slot-info" style="font-size: 0.75rem; color: #888; text-align: center; margin-top: 0.5rem;">
-            Tổng slots: 100 | Còn lại: --
-          </div>
-        </section>
-
-        <div style="display: flex; gap: 0.5rem; margin-top: 1.5rem;">
-          <button id="btn-save-admin" class="btn-folk" style="flex: 1;">LƯU CÀI ĐẶT</button>
-          <button id="btn-reset-admin" class="btn-folk" style="flex: 1; background: #888;">RESET</button>
+        <!-- Footer Actions -->
+        <div class="admin-footer">
+          <button id="btn-reset-admin" class="btn-text">Mặc định</button>
+          <button id="btn-save-admin" class="btn-primary-lg">LƯU CẤU HÌNH LIỀN TAY 💾</button>
         </div>
       </div>
     </div>
@@ -442,11 +388,12 @@
             <label style="font-size: 1.1rem; font-weight: bold; display: block; margin-bottom: 0.75rem;">🎡 Ai sẽ đập
               heo?</label>
             <textarea id="heo-wheel-names" class="heo-wheel-names" rows="5"
-              placeholder="Nhập danh sách tên (mỗi dòng 1 tên)...">An
-Bình
-Cường
-Dũng
-Em</textarea>
+              placeholder="Nhập danh sách tên (mỗi dòng 1 tên)...">Trà
+Mon
+Khang Vỹ
+Trà Thúi
+Mỹ Anh
+Mon Húi</textarea>
             <div class="heo-wheel-container">
               <canvas id="heo-wheel-canvas" width="400" height="400"></canvas>
               <div class="heo-wheel-pointer">▼</div>
@@ -512,18 +459,25 @@ Em</textarea>
           LƯỢT CÒN LẠI: <span id="remaining-turns">0</span>
         </span>
         <span class="game-bar-item">
-          💰 MAX: <span id="current-max">0</span>đ
+          💰 KẾT QUẢ: <span id="current-max">0</span>đ
         </span>
         <span class="game-bar-item powerup" id="bar-x2">⚡ X2</span>
         <span class="game-bar-item powerup" id="bar-top2">🏆 TOP 2</span>
       </div>
 
-      <div class="heo-grid" id="heo-grid">
-        <!-- 100 pigs will be here -->
-      </div>
+      <div class="game-layout">
+        <div class="heo-grid" id="heo-grid">
+          <!-- 100 pigs will be here -->
+        </div>
 
-      <div class="heo-grid" id="heo-grid">
-        <!-- 100 pigs will be here -->
+        <!-- History Sidebar -->
+        <div class="game-sidebar">
+          <div class="sidebar-title">LỊCH SỬ ĐẬP</div>
+          <div id="history-list" class="history-list">
+            <!-- Items added here -->
+            <div class="history-placeholder">Chưa đập heo nào...</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -572,24 +526,34 @@ Em</textarea>
           <div id="summary-badge" style="margin-bottom: 1.5rem; font-size: 1.2rem; font-weight: bold;">
             Huy hiệu: <span style="color: var(--folk-red);">ĐẠI GIA LÌ XÌ</span>
           </div>
-
-          <div style="margin-bottom: 1.5rem;">
-            <canvas id="summary-chart" width="360" height="180" style="max-width: 100%; border-radius: 12px;"></canvas>
-            <div id="summary-chart-legend"
-              style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; font-size: 0.75rem;">
-            </div>
-          </div>
-
-          <button id="btn-play-again" class="btn-folk">Tiếp theo</button>
         </div>
+
+        <!-- New Mechanics UI -->
+        <div id="summary-path" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; word-break: break-all;">
+          <!-- Path inserted here -->
+        </div>
+        <div id="summary-regret"
+          style="font-size: 0.95rem; color: #d63031; font-weight: bold; font-style: italic; margin-bottom: 1.5rem; min-height: 1.2em;">
+          <!-- Regret message here -->
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <canvas id="summary-chart" width="360" height="180" style="max-width: 100%; border-radius: 12px;"></canvas>
+          <div id="summary-chart-legend"
+            style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; font-size: 0.75rem;">
+          </div>
+        </div>
+
+        <button id="btn-play-again" class="btn-folk">Tiếp theo</button>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
 <!-- Include Core Assets -->
 <script src="../../assets/features/folk-games/core.js?h=4867d9eb&amp;v=1.5.2"></script>
-<script src="../../assets/features/dap-heo/script.js?h=0ef935e1&amp;v=1.5.2"></script>
+<script src="../../assets/features/dap-heo/script.js?h=ce8f0cc6&amp;v=1.5.2"></script>
 
                 
           </main>
