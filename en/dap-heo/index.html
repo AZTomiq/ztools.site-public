@@ -118,7 +118,7 @@
                 <!-- Stylesheets -->
                 <link rel="stylesheet" href="../../assets/css/global.css?h=43d2e2d3&amp;v=1.5.2">
                 
-                  <link rel="stylesheet" href="../../assets/features/dap-heo/style.css?h=7145fdb0&amp;v=1.5.2">
+                  <link rel="stylesheet" href="../../assets/features/dap-heo/style.css?h=955a35c8&amp;v=1.5.2">
                   
                     <link rel="icon" type="image/svg+xml" href="../../assets/images/logo.svg">
                     <link rel="manifest" href="../../manifest.json">
@@ -341,7 +341,7 @@
 
             <div class="tier-control gold">
               <div class="tier-header">
-                <span>🥇 </span>
+                <span>🥇 VÀNG (200k)</span>
                 <span id="val-gold" class="val-badge">3</span>
               </div>
               <input type="range" id="range-gold" min="0" max="20" value="3" class="slider">
@@ -360,7 +360,15 @@
                 <span>🥉 ĐỒNG (50k)</span>
                 <span id="val-bronze" class="val-badge">29</span>
               </div>
-              <input type="range" id="cfg-bronze-count" min="0" max="100" value="29" class="slider">
+              <input type="range" id="range-bronze" min="0" max="100" value="29" class="slider">
+            </div>
+
+            <div class="tier-control common">
+              <div class="tier-header">
+                <span>🪙 THƯỜNG (10k-20k)</span>
+                <span id="val-common" class="val-badge">24</span>
+              </div>
+              <input type="range" id="cfg-common-count" min="0" max="100" value="24" class="slider">
             </div>
 
             <div class="tier-control empty">
@@ -384,8 +392,16 @@
                 <input type="number" id="cfg-x2-count" class="modern-input sm" value="2">
               </div>
               <div class="tier-control">
-                <label>🏆 TOP2</label>
+                <label>🏆 TOP1</label>
                 <input type="number" id="cfg-top2-count" class="modern-input sm" value="1">
+              </div>
+              <div class="tier-control">
+                <label>📈 +25%</label>
+                <input type="number" id="cfg-plus25-count" class="modern-input sm" value="2">
+              </div>
+              <div class="tier-control">
+                <label>🚀 +50%</label>
+                <input type="number" id="cfg-plus50-count" class="modern-input sm" value="1">
               </div>
             </div>
 
@@ -507,23 +523,20 @@ Mon Húi</textarea>
           💰 KẾT QUẢ: <span id="current-max">0</span>đ
         </span>
         <span class="game-bar-item powerup" id="bar-x2">⚡ X2</span>
-        <span class="game-bar-item powerup" id="bar-top2">🏆 TOP 2</span>
+        <span class="game-bar-item powerup" id="bar-top2">🏆 TOP 1</span>
+        <span class="game-bar-item powerup" id="bar-plus25">📈 +25%</span>
+        <span class="game-bar-item powerup" id="bar-plus50">🚀 +50%</span>
+      </div>
+      <!-- History Timeline -->
+      <div class="history-timeline" id="history-timeline">
+        <div class="timeline-track" id="history-list">
+          <div class="history-placeholder">Chưa đập heo nào...</div>
+        </div>
       </div>
 
       <div class="game-layout">
         <div class="heo-grid" id="heo-grid">
           <!-- 100 pigs will be here -->
-        </div>
-
-        <!-- History Sidebar -->
-        <div class="game-sidebar">
-          <div class="sidebar-title" id="sidebar-toggle" style="cursor:pointer; user-select:none;">
-            LỊCH SỬ ĐẬP <span id="sidebar-caret" style="transition: transform 0.3s; display:inline-block;">▼</span>
-          </div>
-          <div id="history-list" class="history-list">
-            <!-- Items added here -->
-            <div class="history-placeholder">Chưa đập heo nào...</div>
-          </div>
         </div>
       </div>
     </div>
@@ -607,7 +620,7 @@ Mon Húi</textarea>
   };
 </script>
 <script src="../../assets/features/folk-games/core.js?h=8c0713fe&amp;v=1.5.2"></script>
-<script src="../../assets/features/dap-heo/script.js?h=afcbb156&amp;v=1.5.2"></script>
+<script src="../../assets/features/dap-heo/script.js?h=fb517963&amp;v=1.5.2"></script>
 
                 
           </main>
