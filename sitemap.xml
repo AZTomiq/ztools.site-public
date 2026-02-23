@@ -498,44 +498,6 @@
       
       <url>
         <loc>
-          https://iztools.xyz/dap-heo/
-        </loc>
-        <changefreq>
-          monthly
-        </changefreq>
-        <priority>
-          0.8
-        </priority>
-        
-          <xhtml:link rel="alternate" hreflang="vi" href="https://iztools.xyz/dap-heo/" />
-          
-          <xhtml:link rel="alternate" hreflang="en" href="https://iztools.xyz/en/dap-heo/" />
-          
-          <xhtml:link rel="alternate" hreflang="x-default" href="https://iztools.xyz/en/dap-heo/" />
-          
-      </url>
-      
-      <url>
-        <loc>
-          https://iztools.xyz/en/dap-heo/
-        </loc>
-        <changefreq>
-          monthly
-        </changefreq>
-        <priority>
-          0.8
-        </priority>
-        
-          <xhtml:link rel="alternate" hreflang="vi" href="https://iztools.xyz/dap-heo/" />
-          
-          <xhtml:link rel="alternate" hreflang="en" href="https://iztools.xyz/en/dap-heo/" />
-          
-          <xhtml:link rel="alternate" hreflang="x-default" href="https://iztools.xyz/en/dap-heo/" />
-          
-      </url>
-      
-      <url>
-        <loc>
           https://iztools.xyz/dev-memes/
         </loc>
         <changefreq>
@@ -607,44 +569,6 @@
           <xhtml:link rel="alternate" hreflang="en" href="https://iztools.xyz/en/dev-toolkit/" />
           
           <xhtml:link rel="alternate" hreflang="x-default" href="https://iztools.xyz/en/dev-toolkit/" />
-          
-      </url>
-      
-      <url>
-        <loc>
-          https://iztools.xyz/folk-games/
-        </loc>
-        <changefreq>
-          monthly
-        </changefreq>
-        <priority>
-          0.8
-        </priority>
-        
-          <xhtml:link rel="alternate" hreflang="vi" href="https://iztools.xyz/folk-games/" />
-          
-          <xhtml:link rel="alternate" hreflang="en" href="https://iztools.xyz/en/folk-games/" />
-          
-          <xhtml:link rel="alternate" hreflang="x-default" href="https://iztools.xyz/en/folk-games/" />
-          
-      </url>
-      
-      <url>
-        <loc>
-          https://iztools.xyz/en/folk-games/
-        </loc>
-        <changefreq>
-          monthly
-        </changefreq>
-        <priority>
-          0.8
-        </priority>
-        
-          <xhtml:link rel="alternate" hreflang="vi" href="https://iztools.xyz/folk-games/" />
-          
-          <xhtml:link rel="alternate" hreflang="en" href="https://iztools.xyz/en/folk-games/" />
-          
-          <xhtml:link rel="alternate" hreflang="x-default" href="https://iztools.xyz/en/folk-games/" />
           
       </url>
       
