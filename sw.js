@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aztomiq-v1';
+const CACHE_NAME = 'aztomiq-v1.5.2';
 const IS_DEV = false;
   const STATIC_ASSETS = [
   './',
