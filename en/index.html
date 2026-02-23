@@ -857,674 +857,1412 @@
               <!-- title: iZTools - Small tools. Big help. -->
 
 
-  <div class="home-page-body neo-theme">
+  <div class="home-page-body">
+    <!-- SECTION 1: Hero -->
+    <section class="hero-apple tet-hero">
+      <div class="tet-decor-top-left">🏮</div>
+      <div class="tet-decor-top-right">🏮</div>
+      <div class="tet-decor-extra-1">🧨</div>
+      <div class="tet-decor-extra-2">🧧</div>
+      <h1 class="headline">
+        <span class="tet-text-gold">🧧</span>
+        Small tools. Big help.
+      </h1>
+      <p class="sub-headline" style="color: #5d4037; font-weight: 600; opacity: 0.9;">
+        Fast • Secure • Free
+      </p>
 
-    <!-- SECTION 1: Neo-Festive Hero (Full Viewport) -->
-    <section class="hero-neo">
-      <div class="hero-bg-anim">
-        <canvas id="hero-particles"></canvas>
-        <div class="hero-glow"></div>
-      </div>
-
-      <div class="hero-content">
-
-        <h1 class="neo-title">
-          Small Tools.<br>
-          <span>Big Help.</span>
-        </h1>
-
-        <p class="neo-subtitle">
-          Fast • Secure • Free
-        </p>
-
-        <div class="cmd-bar-wrapper">
-          <div class="cmd-bar">
-            <i data-lucide="search" class="search-icon"></i>
-            <input type="text" id="neo-search" placeholder="Type to search tools..." autocomplete="off">
-            <div class="cmd-hint">
-              <span class="key">⌘</span> + <span class="key">K</span>
-            </div>
-          </div>
+      <div class="hero-search-minimal">
+        <input type="text" id="home-search" placeholder="Search tools... (Ctrl + K)" autocomplete="off">
+        <div class="search-hints"
+          style="position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); opacity: 0.4;">
+          <kbd>Ctrl K</kbd>
         </div>
-      </div>
-
-      <div class="scroll-indicator">
-        <span>Explore</span>
-        <i data-lucide="chevron-down"></i>
       </div>
     </section>
 
+    <section class="section-tet-countdown" id="tet-countdown">
+      <!-- Particle Layer -->
+      <canvas id="tet-blossom-canvas"></canvas>
 
-    <!-- SECTION 1.5: Featured Subdomain Tools -->
-    
-      <section class="section-folk-showcase" id="featured-tools" style="padding-bottom: 0;">
-        <div class="bento-header" style="max-width: 1200px; margin: 0 auto 2rem; text-align: left; padding: 0 1rem;">
-          <h2>Most Popular Tools</h2>
-          <p>Our featured standalone utilities.</p>
+      <div class="countdown-overlay"></div>
+
+      <div class="countdown-wrapper vpc-glass">
+        <!-- Floating Decor -->
+        <div class="floating-lantern l1">🏮</div>
+        <div class="floating-lantern l2">🏮</div>
+
+        <!-- Top Right Fullscreen Toggle -->
+        <button id="fullscreen-countdown" class="fs-trigger-icon" title="Toàn màn hình">
+          <i data-lucide="maximize"></i>
+        </button>
+
+        <h2 class="countdown-title-premium">
+          <span class="gradient-text">PHÓNG NHƯ BAY TỚI TẾT BÍNH NGỌ 2026</span>
+        </h2>
+
+        <div id="tet-timer" class="tet-timer-modern">
+          <div class="timer-unit-modern">
+            <div class="num-card"><span id="days">00</span></div>
+            <small>Ngày</small>
+          </div>
+          <div class="timer-sep-modern">:</div>
+          <div class="timer-unit-modern">
+            <div class="num-card"><span id="hours">00</span></div>
+            <small>Giờ</small>
+          </div>
+          <div class="timer-sep-modern">:</div>
+          <div class="timer-unit-modern">
+            <div class="num-card"><span id="minutes">00</span></div>
+            <small>Phút</small>
+          </div>
+          <div class="timer-sep-modern">:</div>
+          <div class="timer-unit-modern">
+            <div class="num-card"><span id="seconds">00</span></div>
+            <small>Giây</small>
+          </div>
         </div>
-        <div class="tools-grid" style="padding: 0 1rem;">
+
+        <div class="premium-slogan">
+          <p class="slogan-sub">🐎 Mã Đáo Thành Công</p>
+          <p class="slogan-main">🧧 Bính Ngọ chưa kịp chạy đã thành công!</p>
+
+          <button id="lucky-lixi" class="btn-lixi" title="Nhận lộc đầu xuân">
+            <span class="lixi-icon">🧧</span>
+            <span class="lixi-text">Nhận Lộc</span>
+          </button>
+        </div>
+
+        <!-- Background Image with Parallax -->
+        <div class="ma-dao-parallax-bg"></div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Featured Folk Games -->
+    <section class="section-folk-showcase" id="folk-games-featured">
+      <div class="container">
+        <div class="section-header">
+          <h2 style="color: var(--folk-red);">🏮 TRÒ CHƠI DÂN GIAN TẾT</h2>
+          <p class="subtitle">Mừng Xuân Bính Ngọ 2026 - Mã Đáo Thành Công</p>
+        </div>
+        <div class="tools-grid">
+          <!-- Featured Horse Racing -->
+          <a href="../en/racing-horse/"
+            class="tool-card-modern folk-card hot-card">
+            <div class="icon" style="background: var(--folk-red);">🏇</div>
+            <h4>Về Đích Bính Ngọ</h4>
+            <p>Đua ngựa đầu năm, vạn sự hanh thông.</p>
+            <div class="badge-hot">HOT</div>
+          </a>
+          <!-- Featured Piggy Bank -->
+          <a href="../en/dap-heo/" class="tool-card-modern folk-card">
+            <div class="icon" style="background: #FF80AB;">🐷</div>
+            <h4>Đập Heo Đất</h4>
+            <p>Đập heo lấy lộc, sung túc cả năm.</p>
+          </a>
+          <!-- Featured Red Envelope -->
+          <a href="../en/li-xi/" class="tool-card-modern folk-card">
+            <div class="icon" style="background: var(--folk-red);">🧧</div>
+            <h4>Lì Xì Tết 2026</h4>
+            <p>Hái lộc đầu xuân, nhận ngàn lời chúc.</p>
+          </a>
+          <!-- Featured Wheel -->
+          <a href="../en/lucky-wheel/" class="tool-card-modern folk-card">
+            <div class="icon" style="background: var(--folk-gold);">🎡</div>
+            <h4>Vòng Quay May Mắn</h4>
+            <p>Xoay là trúng, vận may mỉm cười.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Fast Access (Subdomain Tools) -->
+    <section class="section-fast-access" id="fast-access">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            🚀 Fast Access
+          </h2>
+          <p class="subtitle">
+            Direct access via subdomain
+          </p>
+        </div>
+
+        <div class="fast-access-grid">
           
             <a href="../en/tax/"
-              class="tool-card-modern">
-              
-                <div class="badge-hot">Top 1</div>
-                
-                  <div class="icon">
-                    <i data-lucide="banknote"></i>
-                  </div>
-                  <h4>
-                    VIETNAM PIT Calculator
-                  </h4>
-                  <p>
-                    Comparison between tax law 2025 and earlier vs Resolution 110/2025/UBTVQH15 (effective from Jan 1, 2026)
-                  </p>
+              class="fast-access-card">
+              <div class="fast-badge">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="fast-icon">
+                <i data-lucide="banknote" style="width: 40px; height: 40px;"></i>
+              </div>
+              <h3>
+                VIETNAM PIT Calculator
+              </h3>
+              <p>
+                Comparison between tax law 2025 and earlier vs Resolution 110/2025/UBTVQH15 (effective from Jan 1, 2026)
+              </p>
+              <div class="fast-url">
+                <i data-lucide="link" style="width: 14px; height: 14px;"></i>
+                <span>
+                  tncn.iztools.xyz
+                </span>
+              </div>
             </a>
             
             <a href="../en/web-playground/"
-              class="tool-card-modern">
-              
-                  <div class="icon">
-                    <i data-lucide="code-2"></i>
-                  </div>
-                  <h4>
-                    Web Playground
-                  </h4>
-                  <p>
-                    Online HTML/CSS/JS editor, runs directly in your browser, server-less sharing.
-                  </p>
+              class="fast-access-card">
+              <div class="fast-badge">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="fast-icon">
+                <i data-lucide="code-2" style="width: 40px; height: 40px;"></i>
+              </div>
+              <h3>
+                Web Playground
+              </h3>
+              <p>
+                Online HTML/CSS/JS editor, runs directly in your browser, server-less sharing.
+              </p>
+              <div class="fast-url">
+                <i data-lucide="link" style="width: 14px; height: 14px;"></i>
+                <span>
+                  playground.iztools.xyz
+                </span>
+              </div>
             </a>
             
             <a href="../en/json-toolkit/"
-              class="tool-card-modern">
-              
-                  <div class="icon">
-                    <i data-lucide="braces"></i>
-                  </div>
-                  <h4>
-                    JSON Toolkit
-                  </h4>
-                  <p>
-                    Format, validate, and convert JSON. Includes Tree View and data processing tools.
-                  </p>
+              class="fast-access-card">
+              <div class="fast-badge">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="fast-icon">
+                <i data-lucide="braces" style="width: 40px; height: 40px;"></i>
+              </div>
+              <h3>
+                JSON Toolkit
+              </h3>
+              <p>
+                Format, validate, and convert JSON. Includes Tree View and data processing tools.
+              </p>
+              <div class="fast-url">
+                <i data-lucide="link" style="width: 14px; height: 14px;"></i>
+                <span>
+                  json.iztools.xyz
+                </span>
+              </div>
             </a>
             
             <a href="../en/compound-interest/"
-              class="tool-card-modern">
-              
-                  <div class="icon">
-                    <i data-lucide="trending-up"></i>
-                  </div>
-                  <h4>
-                    Compound Interest Calculator
-                  </h4>
-                  <p>
-                    Calculate the future value of your investment with compound interest. Includes monthly contributions and customizable compounding frequency.
-                  </p>
+              class="fast-access-card">
+              <div class="fast-badge">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="fast-icon">
+                <i data-lucide="trending-up" style="width: 40px; height: 40px;"></i>
+              </div>
+              <h3>
+                Compound Interest Calculator
+              </h3>
+              <p>
+                Calculate the future value of your investment with compound interest. Includes monthly contributions and customizable compounding frequency.
+              </p>
+              <div class="fast-url">
+                <i data-lucide="link" style="width: 14px; height: 14px;"></i>
+                <span>
+                  laikep.iztools.xyz
+                </span>
+              </div>
             </a>
             
             <a href="../en/lunar-calendar/"
-              class="tool-card-modern">
-              
-                  <div class="icon">
-                    <i data-lucide="moon"></i>
-                  </div>
-                  <h4>
-                    Lunar Calendar
-                  </h4>
-                  <p>
-                    Convert Solar to Lunar calendar, view Can Chi and Good Hours
-                  </p>
+              class="fast-access-card">
+              <div class="fast-badge">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <div class="fast-icon">
+                <i data-lucide="moon" style="width: 40px; height: 40px;"></i>
+              </div>
+              <h3>
+                Lunar Calendar
+              </h3>
+              <p>
+                Convert Solar to Lunar calendar, view Can Chi and Good Hours
+              </p>
+              <div class="fast-url">
+                <i data-lucide="link" style="width: 14px; height: 14px;"></i>
+                <span>
+                  amlich.iztools.xyz
+                </span>
+              </div>
             </a>
             
         </div>
-      </section>
-      
+      </div>
+    </section>
 
-        <!-- SECTION 2: Bento Grid (All Tools) -->
-        <section class="section-bento" id="explore">
-          <div class="bento-container">
-            <div class="bento-header">
-              <h2>Explore Tools</h2>
-              <p>Everything you need, organized beautifully.</p>
-            </div>
+    <!-- SECTION 3: Smart Picks (Personalized + Trending) -->
+    <section class="section-smart-picks" id="smart-picks">
+      <div class="container">
+        <div class="section-header">
+          <h2>
+            💡 Smart Picks
+          </h2>
+          <p class="subtitle">
+            Based on your preferences and trends
+          </p>
+        </div>
+        <div class="tools-grid" id="smart-picks-grid">
+          <!-- Will be populated by home.js with smart algorithm -->
+        </div>
+      </div>
+    </section>
 
-            <div class="bento-grid">
-
-              <!-- Standard Tools Loop -->
-              
-
-                
-                  <a href="../en/bmi/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="scale"></i>
-                    </div>
-                    <h3>
-                      BMI Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate Body Mass Index (BMI). Evaluate your weight status based on international standards.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/bookmark-creator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="bookmark"></i>
-                    </div>
-                    <h3>
-                      Bookmark Creator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Create a personal bookmark set for your browser with your favorite iZTools.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/business-tax/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="briefcase"></i>
-                    </div>
-                    <h3>
-                      Corporate Income Tax (CIT) Calc
-                    </h3>
-                    <p class="line-clamp-2">
-                      Corporate Income Tax Calculator
-                    </p>
-                  </a>
-                  
-                  <a href="../en/compound-interest/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="trending-up"></i>
-                    </div>
-                    <h3>
-                      Compound Interest Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate the future value of your investment with compound interest. Includes monthly contributions and customizable compounding frequency.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/cron-parser/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="terminal"></i>
-                    </div>
-                    <h3>
-                      Cron Expression Parser
-                    </h3>
-                    <p class="line-clamp-2">
-                      Convert Cron expressions into human-readable text.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/dap-heo/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="hammer"></i>
-                    </div>
-                    <h3>
-                      Piggy Bank Smash
-                    </h3>
-                    <p class="line-clamp-2">
-                      Smash the piggy bank to collect lucky coins.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/date-time-master/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="calendar-clock"></i>
-                    </div>
-                    <h3>
-                      Date &amp; Time Master
-                    </h3>
-                    <p class="line-clamp-2">
-                      All-in-one time tool: Calculate distance, add/subtract dates, and Unix conversion.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/date-toolkit/"
-                    class="bento-item bento-wide">
-                    <div class="bento-icon">
-                      <i data-lucide="calendar-days"></i>
-                    </div>
-                    <h3>
-                      Date Toolkit
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate distance between dates, add/subtract time, and countdown.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/dev-memes/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="smile"></i>
-                    </div>
-                    <h3>
-                      DEV Memes
-                    </h3>
-                    <p class="line-clamp-2">
-                      Stress relief for Developers
-                    </p>
-                  </a>
-                  
-                  <a href="../en/dev-toolkit/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="code"></i>
-                    </div>
-                    <h3>
-                      Developer Toolkit
-                    </h3>
-                    <p class="line-clamp-2">
-                      Comprehensive toolkit for developers
-                    </p>
-                  </a>
-                  
-                  <a href="../en/freelancer-tax/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="receipt"></i>
-                    </div>
-                    <h3>
-                      Freelancer &amp; Business Tax
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate tax for withholding (10%) or personal business households.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/hash-toolkit/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="lock"></i>
-                    </div>
-                    <h3>
-                      Base64 &amp; Hash Toolkit
-                    </h3>
-                    <p class="line-clamp-2">
-                      Quickly encode/decode Base64 and generate cryptographic hashes like MD5 and SHA256.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/inflation-calculator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="line-chart"></i>
-                    </div>
-                    <h3>
-                      Inflation Calculator (Vietnam)
-                    </h3>
-                    <p class="line-clamp-2">
-                      See how much your money has lost or gained value over time.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/investment-calc/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="piggy-bank"></i>
-                    </div>
-                    <h3>
-                      Investment ROI Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate your Return on Investment (ROI) and Annual Yield.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/json-toolkit/"
-                    class="bento-item bento-wide">
-                    <div class="bento-icon">
-                      <i data-lucide="braces"></i>
-                    </div>
-                    <h3>
-                      JSON Toolkit
-                    </h3>
-                    <p class="line-clamp-2">
-                      Format, validate, and convert JSON. Includes Tree View and data processing tools.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/jwt-toolkit/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="key"></i>
-                    </div>
-                    <h3>
-                      JWT Debugger &amp; Decoder
-                    </h3>
-                    <p class="line-clamp-2">
-                      Decode, verify and inspect JSON Web Tokens (JWT) safely in your browser.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/li-xi/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="gift"></i>
-                    </div>
-                    <h3>
-                      Lì Xì Tết 2026
-                    </h3>
-                    <p class="line-clamp-2">
-                      Receive lucky red envelopes every day to celebrate the Year of the Horse.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/loan-calculator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="home"></i>
-                    </div>
-                    <h3>
-                      Loan Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate monthly payments for loans, amortized schedule with reducing balance or flat rate options.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/lorem-ipsum/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="pilcrow"></i>
-                    </div>
-                    <h3>
-                      Lorem Ipsum Generator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Generate placeholder text for designs and mockups.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/lucky-wheel/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="rotate-cw"></i>
-                    </div>
-                    <h3>
-                      Lucky Wheel
-                    </h3>
-                    <p class="line-clamp-2">
-                      Input a list and spin to find a lucky winner or make decisions.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/lunar-calendar/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="moon"></i>
-                    </div>
-                    <h3>
-                      Lunar Calendar
-                    </h3>
-                    <p class="line-clamp-2">
-                      Convert Solar to Lunar calendar, view Can Chi and Good Hours
-                    </p>
-                  </a>
-                  
-                  <a href="../en/ot-calculator/"
-                    class="bento-item bento-wide">
-                    <div class="bento-icon">
-                      <i data-lucide="clock"></i>
-                    </div>
-                    <h3>
-                      Overtime Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate accurately your overtime pay based on Vietnam Labor Law
-                    </p>
-                  </a>
-                  
-                  <a href="../en/password-generator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="key-round"></i>
-                    </div>
-                    <h3>
-                      Strong Password Generator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Generate secure, random passwords instantly.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/percentage-calculator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="percent"></i>
-                    </div>
-                    <h3>
-                      Percentage Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate percentages easily. Find percentage of a number, percentage change, or what percentage one number is of another.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/qr-generator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="qr-code"></i>
-                    </div>
-                    <h3>
-                      QR Code Generator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Generate high-quality QR codes for URLs, text, and more. Works entirely offline for privacy.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/racing-horse/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="chevrons-right"></i>
-                    </div>
-                    <h3>
-                      Race to Bính Ngọ Finish
-                    </h3>
-                    <p class="line-clamp-2">
-                      Year of the Horse racing for luck and success!
-                    </p>
-                  </a>
-                  
-                  <a href="../en/random-toolkit/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="dices"></i>
-                    </div>
-                    <h3>
-                      Random Toolkit
-                    </h3>
-                    <p class="line-clamp-2">
-                      Generate random numbers, pick items from list, and roll dice.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/salary-tax-master/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="wallet"></i>
-                    </div>
-                    <h3>
-                      Salary &amp; Tax Master
-                    </h3>
-                    <p class="line-clamp-2">
-                      Full Salary &amp; Tax Suite
-                    </p>
-                  </a>
-                  
-                  <a href="../en/savings-interest/"
-                    class="bento-item bento-wide">
-                    <div class="bento-icon">
-                      <i data-lucide="coins"></i>
-                    </div>
-                    <h3>
-                      Savings Interest Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Calculate bank savings interest quickly. Supports term deposits with end-of-term or monthly interest payout.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/social-insurance/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="shield-plus"></i>
-                    </div>
-                    <h3>
-                      Social Insurance
-                    </h3>
-                    <p class="line-clamp-2">
-                      Social Insurance &amp; Pension Calculator
-                    </p>
-                  </a>
-                  
-                  <a href="../en/tax/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="banknote"></i>
-                    </div>
-                    <h3>
-                      VIETNAM PIT Calculator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Comparison between tax law 2025 and earlier vs Resolution 110/2025/UBTVQH15 (effective from Jan 1, 2026)
-                    </p>
-                  </a>
-                  
-                  <a href="../en/text-diff/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="file-diff"></i>
-                    </div>
-                    <h3>
-                      Text Diff Checker
-                    </h3>
-                    <p class="line-clamp-2">
-                      Compare two texts and highlight differences (additions, deletions, changes).
-                    </p>
-                  </a>
-                  
-                  <a href="../en/text-formatter/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="wand-2"></i>
-                    </div>
-                    <h3>
-                      Text Formatter - Clear Style
-                    </h3>
-                    <p class="line-clamp-2">
-                      Remove formatting and clean up text copied from web pages.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/timestamp-converter/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="clock"></i>
-                    </div>
-                    <h3>
-                      Timestamp Converter
-                    </h3>
-                    <p class="line-clamp-2">
-                      Convert between Unix timestamps and human-readable dates.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/unit-converter/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="ruler"></i>
-                    </div>
-                    <h3>
-                      Unit Converter
-                    </h3>
-                    <p class="line-clamp-2">
-                      Convert length, weight, volume, area, temperature, and more.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/url-toolkit/"
-                    class="bento-item bento-wide">
-                    <div class="bento-icon">
-                      <i data-lucide="link"></i>
-                    </div>
-                    <h3>
-                      URL &amp; Base64 Toolkit
-                    </h3>
-                    <p class="line-clamp-2">
-                      Encode/Decode URL, Base64 and parse URL structure quickly.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/uuid-generator/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="fingerprint"></i>
-                    </div>
-                    <h3>
-                      UUID Generator
-                    </h3>
-                    <p class="line-clamp-2">
-                      Generate random UUIDs/GUIDs (V1, V4, V7) instantly.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/web-playground/"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="code-2"></i>
-                    </div>
-                    <h3>
-                      Web Playground
-                    </h3>
-                    <p class="line-clamp-2">
-                      Online HTML/CSS/JS editor, runs directly in your browser, server-less sharing.
-                    </p>
-                  </a>
-                  
-                  <a href="../en/word-counter/d"
-                    class="bento-item ">
-                    <div class="bento-icon">
-                      <i data-lucide="bar-chart-3"></i>
-                    </div>
-                    <h3>
-                      Word Counter &amp; Analyzer
-                    </h3>
-                    <p class="line-clamp-2">
-                      Count words, analyze frequency, and convert case (Case Converter).
-                    </p>
-                  </a>
-                  
-
-                    <!-- 4. View All Link -->
-                    <a href="/categories" class="bento-item bento-tall"
-                      style="background: var(--neo-primary); color: white; border: none;">
-                      <div
-                        style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-                        <i data-lucide="layout-grid" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i>
-                        <h3>View All Categories</h3>
-                      </div>
-                    </a>
-
-            </div>
+    <!-- SECTION 4: All Tools by Category -->
+    <section class="section-all-tools" id="all-tools">
+      <div class="container">
+        <div class="category-header" style="text-align: center; margin-bottom: 4rem;">
+          <div class="hero-actions">
+            <a href="#cats-section" class="btn btn-primary">
+              Categories
+            </a>
+            <a href="/folk-games/" class="btn"
+              style="background: var(--folk-red, #B71C1C); color: white; border: 2px solid var(--folk-gold, #FFD700);">🧧
+              Trò Chơi Dân Gian</a>
           </div>
-        </section>
-
-        <!-- SECTION 3: Philosophy / Footer Intro -->
-        <section class="section-philosophy-neo">
-          <div class="container">
-            <h2>Simplicity is the ultimate sophistication.</h2>
-            <p>Built for developers, creators, and everyone in between.</p>
-          </div>
-        </section>
+          <h2 style="font-size: 2rem; font-weight: 800;">📂 Categories
+          </h2>
+        </div>
 
         
+          <div class="category-section" id="job-tools" style="margin-bottom: 5rem;">
+            <h3 class="category-title"
+              style="font-size: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px;">
+              <i data-lucide="briefcase"></i>
+              Job &amp; Income
+            </h3>
+            <div class="tools-grid">
+              
+                <a href="../en/business-tax/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="business-tax"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="briefcase" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="business-tax"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Corporate Income Tax (CIT) Calc
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Corporate Income Tax Calculator
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/freelancer-tax/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="freelancer-tax"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="receipt" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="freelancer-tax"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Freelancer &amp; Business Tax
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate tax for withholding (10%) or personal business households.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/ot-calculator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="ot-calculator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="clock" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="ot-calculator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Overtime Calculator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate accurately your overtime pay based on Vietnam Labor Law
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/salary-tax-master/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="salary-tax-master"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="wallet" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="salary-tax-master"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Salary &amp; Tax Master
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Full Salary &amp; Tax Suite
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/social-insurance/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="social-insurance"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="shield-plus" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="social-insurance"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Social Insurance
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Social Insurance &amp; Pension Calculator
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="category-section" id="finance-tools" style="margin-bottom: 5rem;">
+            <h3 class="category-title"
+              style="font-size: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px;">
+              <i data-lucide="line-chart"></i>
+              Finance &amp; Banking
+            </h3>
+            <div class="tools-grid">
+              
+                <a href="../en/inflation-calculator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="inflation-calculator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="line-chart" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="inflation-calculator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Inflation Calculator (Vietnam)
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    See how much your money has lost or gained value over time.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/investment-calc/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="investment-calc"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="piggy-bank" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="investment-calc"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Investment ROI Calculator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate your Return on Investment (ROI) and Annual Yield.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/loan-calculator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="loan-calculator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="home" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="loan-calculator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Loan Calculator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate monthly payments for loans, amortized schedule with reducing balance or flat rate options.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/percentage-calculator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="percentage-calculator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="percent" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="percentage-calculator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Percentage Calculator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate percentages easily. Find percentage of a number, percentage change, or what percentage one number is of another.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/savings-interest/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="savings-interest"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="coins" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="savings-interest"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Savings Interest Calculator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate bank savings interest quickly. Supports term deposits with end-of-term or monthly interest payout.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="category-section" id="text-tools" style="margin-bottom: 5rem;">
+            <h3 class="category-title"
+              style="font-size: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px;">
+              <i data-lucide="type"></i>
+              Text Tools
+            </h3>
+            <div class="tools-grid">
+              
+                <a href="../en/lorem-ipsum/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="lorem-ipsum"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="pilcrow" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="lorem-ipsum"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Lorem Ipsum Generator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Generate placeholder text for designs and mockups.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/text-diff/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="text-diff"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="file-diff" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="text-diff"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Text Diff Checker
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Compare two texts and highlight differences (additions, deletions, changes).
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/text-formatter/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="text-formatter"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="wand-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="text-formatter"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Text Formatter - Clear Style
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Remove formatting and clean up text copied from web pages.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/word-counter/d"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="word-counter"
+                  data-personas="creator" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="bar-chart-3" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="word-counter"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Word Counter &amp; Analyzer
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Count words, analyze frequency, and convert case (Case Converter).
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="category-section" id="generator-tools" style="margin-bottom: 5rem;">
+            <h3 class="category-title"
+              style="font-size: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px;">
+              <i data-lucide="wand-2"></i>
+              Generator Tools
+            </h3>
+            <div class="tools-grid">
+              
+                <a href="../en/password-generator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="password-generator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="key-round" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="password-generator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Strong Password Generator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Generate secure, random passwords instantly.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/uuid-generator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="uuid-generator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="fingerprint" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="uuid-generator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    UUID Generator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Generate random UUIDs/GUIDs (V1, V4, V7) instantly.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="category-section" id="daily-tools" style="margin-bottom: 5rem;">
+            <h3 class="category-title"
+              style="font-size: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px;">
+              <i data-lucide="calendar"></i>
+              Daily Utilities
+            </h3>
+            <div class="tools-grid">
+              
+                <a href="../en/bmi/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="bmi"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="scale" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="bmi"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    BMI Calculator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate Body Mass Index (BMI). Evaluate your weight status based on international standards.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                        <span class="mini-tag"
+                          style="font-size: 0.75rem; color: var(--text-muted); background: var(--bg-hover); padding: 2px 6px; border-radius: 4px;">#
+                          bmi calculator
+                        </span>
+                        
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/bookmark-creator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="bookmark-creator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="bookmark" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="bookmark-creator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Bookmark Creator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Create a personal bookmark set for your browser with your favorite iZTools.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/dap-heo/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="dap-heo"
+                  data-personas="pro,hobby" data-vn-only="true">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="hammer" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="dap-heo"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Piggy Bank Smash
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Smash the piggy bank to collect lucky coins.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                        <span class="mini-tag"
+                          style="font-size: 0.75rem; color: var(--text-muted); background: var(--bg-hover); padding: 2px 6px; border-radius: 4px;">#
+                          đập heo đất
+                        </span>
+                        
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/date-time-master/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="date-time-master"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="calendar-clock" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="date-time-master"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Date &amp; Time Master
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    All-in-one time tool: Calculate distance, add/subtract dates, and Unix conversion.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/date-toolkit/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="date-toolkit"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="calendar-days" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="date-toolkit"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Date Toolkit
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Calculate distance between dates, add/subtract time, and countdown.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/li-xi/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="li-xi"
+                  data-personas="pro,hobby" data-vn-only="true">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="gift" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="li-xi"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Lì Xì Tết 2026
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Receive lucky red envelopes every day to celebrate the Year of the Horse.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                        <span class="mini-tag"
+                          style="font-size: 0.75rem; color: var(--text-muted); background: var(--bg-hover); padding: 2px 6px; border-radius: 4px;">#
+                          lì xì tết 2026
+                        </span>
+                        
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/racing-horse/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="racing-horse"
+                  data-personas="pro,hobby" data-vn-only="true">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="chevrons-right" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="racing-horse"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Race to Bính Ngọ Finish
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Year of the Horse racing for luck and success!
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                        <span class="mini-tag"
+                          style="font-size: 0.75rem; color: var(--text-muted); background: var(--bg-hover); padding: 2px 6px; border-radius: 4px;">#
+                          về đích cùng bính ngọ
+                        </span>
+                        
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/unit-converter/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="unit-converter"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="ruler" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="unit-converter"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Unit Converter
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Convert length, weight, volume, area, temperature, and more.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+            </div>
+          </div>
+          
+          <div class="category-section" id="dev-tools" style="margin-bottom: 5rem;">
+            <h3 class="category-title"
+              style="font-size: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px;">
+              <i data-lucide="code"></i>
+              Dev Tools
+            </h3>
+            <div class="tools-grid">
+              
+                <a href="../en/cron-parser/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="cron-parser"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="terminal" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="cron-parser"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Cron Expression Parser
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Convert Cron expressions into human-readable text.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/dev-toolkit/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="dev-toolkit"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="code" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="dev-toolkit"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Developer Toolkit
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Comprehensive toolkit for developers
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/hash-toolkit/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="hash-toolkit"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="lock" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="hash-toolkit"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Base64 &amp; Hash Toolkit
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Quickly encode/decode Base64 and generate cryptographic hashes like MD5 and SHA256.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/jwt-toolkit/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="jwt-toolkit"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="key" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="jwt-toolkit"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    JWT Debugger &amp; Decoder
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Decode, verify and inspect JSON Web Tokens (JWT) safely in your browser.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/qr-generator/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="qr-generator"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="qr-code" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="qr-generator"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    QR Code Generator
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Generate high-quality QR codes for URLs, text, and more. Works entirely offline for privacy.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/timestamp-converter/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="timestamp-converter"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="clock" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="timestamp-converter"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    Timestamp Converter
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Convert between Unix timestamps and human-readable dates.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+                <a href="../en/url-toolkit/"
+                  class="tool-card-modern tool-card-wrapper" data-tool-id="url-toolkit"
+                  data-personas="" data-vn-only="false">
+
+                  <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+                    <div class="icon">
+                      <i data-lucide="link" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <button class="star-btn" data-tool-id="url-toolkit"
+                      onclick="event.preventDefault(); event.stopPropagation();" style="position: static;">
+                      <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </button>
+                  </div>
+
+                  <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    URL &amp; Base64 Toolkit
+                  </h4>
+                  <p
+                    style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 2rem; flex-grow: 1;">
+                    Encode/Decode URL, Base64 and parse URL structure quickly.
+                  </p>
+
+                  <div class="card-footer"
+                    style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                    <div class="card-tags" style="display: flex; gap: 0.5rem;">
+                      
+                    </div>
+                    <i data-lucide="arrow-right"
+                      style="width: 16px; height: 16px; color: var(--primary-color); opacity: 0;"></i>
+                  </div>
+                </a>
+                
+            </div>
+          </div>
+          
+      </div>
+    </section>
+
+    <!-- SECTION 5: Philosophy (Compact) -->
+    <section class="section-philosophy-compact">
+      <div class="container">
+        <h2>
+          Not more. Just better.
+        </h2>
+        <p>
+          Every tool in iZTools is built with a single goal: reduce complexity, increase clarity. You focus on thinking — we handle the rest.
+        </p>
+      </div>
+    </section>
+
+    
 
   
     <section class="tag-cloud-section container">
@@ -1726,9 +2464,8 @@
     
   </div>
 
-  <!-- New Assets -->
-  <link rel="stylesheet" href="../assets/css/home-new.css?h=66e742aa&amp;v=1.5.2">
-  <script src="../assets/js/home-new.js?h=d905df99&amp;v=1.5.2"></script>
+  <script src="../assets/js/home.js?h=9911f4be&amp;v=1.5.2"></script>
+  <link rel="stylesheet" href="../assets/css/home.css?h=6cfe5792&amp;v=1.5.2">
 
                 
           </main>
